@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02B2B65694F4062F90D70F98 /* libPods-OpenIDConnectExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */; };
+		C3C1B1BE727C98029A306933 /* Pods_OpenIDConnectExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD0F9398574A7DB5B2890E1 /* Pods_OpenIDConnectExample.framework */; };
 		CF5A11DF1E3F97C7005101CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */; };
 		CF5A11E11E3F97C7005101CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11E01E3F97C7005101CA /* ViewController.swift */; };
 		CF5A11E41E3F97C7005101CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E21E3F97C7005101CA /* Main.storyboard */; };
@@ -15,6 +15,7 @@
 		CF5A11E91E3F97C7005101CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E71E3F97C7005101CA /* LaunchScreen.storyboard */; };
 		CF5A11F41E3F97C7005101CA /* OpenIDConnectExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11F31E3F97C7005101CA /* OpenIDConnectExampleTests.swift */; };
 		CF5A11FF1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11FE1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift */; };
+		CF5EE1091E3F9DBD007FFB7F /* LoginGovService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenIDConnectExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E5929E2922B79D43F0E311 /* Pods-OpenIDConnectExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.release.xcconfig"; sourceTree = "<group>"; };
 		CF5A11DB1E3F97C7005101CA /* OpenIDConnectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenIDConnectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +50,9 @@
 		CF5A11FA1E3F97C7005101CA /* OpenIDConnectExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenIDConnectExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5A11FE1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIDConnectExampleUITests.swift; sourceTree = "<group>"; };
 		CF5A12001E3F97C7005101CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginGovService.swift; sourceTree = "<group>"; };
 		D276DDAB6540A90CE7F0F49F /* Pods-OpenIDConnectExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.debug.xcconfig"; sourceTree = "<group>"; };
+		DDD0F9398574A7DB5B2890E1 /* Pods_OpenIDConnectExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenIDConnectExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B2B65694F4062F90D70F98 /* libPods-OpenIDConnectExample.a in Frameworks */,
+				C3C1B1BE727C98029A306933 /* Pods_OpenIDConnectExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 				CF5A11E51E3F97C7005101CA /* Assets.xcassets */,
 				CF5A11E71E3F97C7005101CA /* LaunchScreen.storyboard */,
 				CF5A11EA1E3F97C7005101CA /* Info.plist */,
+				CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */,
 			);
 			path = OpenIDConnectExample;
 			sourceTree = "<group>";
@@ -144,7 +147,7 @@
 		FC7614A5505333D791D0DBE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */,
+				DDD0F9398574A7DB5B2890E1 /* Pods_OpenIDConnectExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			files = (
 				CF5A11E11E3F97C7005101CA /* ViewController.swift in Sources */,
 				CF5A11DF1E3F97C7005101CA /* AppDelegate.swift in Sources */,
+				CF5EE1091E3F9DBD007FFB7F /* LoginGovService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +586,7 @@
 				CF5A12051E3F97C7005101CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF5A12061E3F97C7005101CA /* Build configuration list for PBXNativeTarget "OpenIDConnectExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +595,7 @@
 				CF5A12081E3F97C7005101CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF5A12091E3F97C7005101CA /* Build configuration list for PBXNativeTarget "OpenIDConnectExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +604,7 @@
 				CF5A120B1E3F97C7005101CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppAuth
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didSelectLoginGov(_ sender: Any) {
+        let delegate = UIApplication.shared.delegate! as! AppDelegate
+
+        delegate.currentAuthorizationSession = OIDAuthorizationService.present(LoginGovService.authorizationRequest(), presenting: self, callback: { (response: OIDAuthorizationResponse?, error: Error?) in
+        })
+    }
 
 }
 
