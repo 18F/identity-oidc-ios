@@ -82,3 +82,14 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AppAuth/AppAuth.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Base64/Base64.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JWT/JWT.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AppAuth/AppAuth.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Base64/Base64.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JWT/JWT.framework"
+fi

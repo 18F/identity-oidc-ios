@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AppAuth" "$PODS_CONFIGURATION_BUILD_DIR/Base64" "$PODS_CONFIGURATION_BUILD_DIR/JWT"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AppAuth" "${PODS_ROOT}/Headers/Public/Base64" "${PODS_ROOT}/Headers/Public/JWT"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AppAuth" "$PODS_CONFIGURATION_BUILD_DIR/Base64" "$PODS_CONFIGURATION_BUILD_DIR/JWT"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AppAuth" -isystem "${PODS_ROOT}/Headers/Public/Base64" -isystem "${PODS_ROOT}/Headers/Public/JWT"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"AppAuth" -l"Base64" -l"JWT" -framework "SafariServices" -framework "Security"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AppAuth/AppAuth.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Base64/Base64.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/JWT/JWT.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AppAuth" -framework "Base64" -framework "JWT"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods
