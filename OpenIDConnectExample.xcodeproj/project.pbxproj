@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B2B65694F4062F90D70F98 /* libPods-OpenIDConnectExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */; };
 		CF5A11DF1E3F97C7005101CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */; };
 		CF5A11E11E3F97C7005101CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11E01E3F97C7005101CA /* ViewController.swift */; };
 		CF5A11E41E3F97C7005101CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E21E3F97C7005101CA /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenIDConnectExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E5929E2922B79D43F0E311 /* Pods-OpenIDConnectExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.release.xcconfig"; sourceTree = "<group>"; };
 		CF5A11DB1E3F97C7005101CA /* OpenIDConnectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenIDConnectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5A11E01E3F97C7005101CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		CF5A11FA1E3F97C7005101CA /* OpenIDConnectExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenIDConnectExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5A11FE1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIDConnectExampleUITests.swift; sourceTree = "<group>"; };
 		CF5A12001E3F97C7005101CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D276DDAB6540A90CE7F0F49F /* Pods-OpenIDConnectExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B2B65694F4062F90D70F98 /* libPods-OpenIDConnectExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,8 @@
 				CF5A11F21E3F97C7005101CA /* OpenIDConnectExampleTests */,
 				CF5A11FD1E3F97C7005101CA /* OpenIDConnectExampleUITests */,
 				CF5A11DC1E3F97C7005101CA /* Products */,
+				E798B6110A03B5A56955DA8A /* Pods */,
+				FC7614A5505333D791D0DBE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,23 @@
 			path = OpenIDConnectExampleUITests;
 			sourceTree = "<group>";
 		};
+		E798B6110A03B5A56955DA8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D276DDAB6540A90CE7F0F49F /* Pods-OpenIDConnectExample.debug.xcconfig */,
+				76E5929E2922B79D43F0E311 /* Pods-OpenIDConnectExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC7614A5505333D791D0DBE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EA05FB050C35855705C391C /* libPods-OpenIDConnectExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF5A12031E3F97C7005101CA /* Build configuration list for PBXNativeTarget "OpenIDConnectExample" */;
 			buildPhases = (
+				3CB2DEDC8DDDBEB36B45A682 /* [CP] Check Pods Manifest.lock */,
 				CF5A11D71E3F97C6005101CA /* Sources */,
 				CF5A11D81E3F97C6005101CA /* Frameworks */,
 				CF5A11D91E3F97C6005101CA /* Resources */,
+				FEEAA93641C383996A1F8F6A /* [CP] Embed Pods Frameworks */,
+				1F4BBFB3BEDA62CF1C644932 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F4BBFB3BEDA62CF1C644932 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CB2DEDC8DDDBEB36B45A682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEEAA93641C383996A1F8F6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF5A11D71E3F97C6005101CA /* Sources */ = {
@@ -410,6 +485,7 @@
 		};
 		CF5A12041E3F97C7005101CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D276DDAB6540A90CE7F0F49F /* Pods-OpenIDConnectExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OpenIDConnectExample/Info.plist;
@@ -422,6 +498,7 @@
 		};
 		CF5A12051E3F97C7005101CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76E5929E2922B79D43F0E311 /* Pods-OpenIDConnectExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OpenIDConnectExample/Info.plist;
