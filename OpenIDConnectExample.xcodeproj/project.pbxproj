@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		C3C1B1BE727C98029A306933 /* Pods_OpenIDConnectExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD0F9398574A7DB5B2890E1 /* Pods_OpenIDConnectExample.framework */; };
 		CF5A11DF1E3F97C7005101CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */; };
-		CF5A11E11E3F97C7005101CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11E01E3F97C7005101CA /* ViewController.swift */; };
+		CF5A11E11E3F97C7005101CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11E01E3F97C7005101CA /* LoginViewController.swift */; };
 		CF5A11E41E3F97C7005101CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E21E3F97C7005101CA /* Main.storyboard */; };
 		CF5A11E61E3F97C7005101CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E51E3F97C7005101CA /* Assets.xcassets */; };
 		CF5A11E91E3F97C7005101CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5A11E71E3F97C7005101CA /* LaunchScreen.storyboard */; };
 		CF5A11F41E3F97C7005101CA /* OpenIDConnectExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11F31E3F97C7005101CA /* OpenIDConnectExampleTests.swift */; };
 		CF5A11FF1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A11FE1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift */; };
 		CF5EE1091E3F9DBD007FFB7F /* LoginGovService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */; };
+		CF9E2A5E1E40E5DE00836E39 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E2A5D1E40E5DE00836E39 /* ProfileController.swift */; };
 		CFA1B1331E3FE62A0023F52D /* saml_test_sp.p12 in Resources */ = {isa = PBXBuildFile; fileRef = CFA1B1321E3FE62A0023F52D /* saml_test_sp.p12 */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,7 @@
 		76E5929E2922B79D43F0E311 /* Pods-OpenIDConnectExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.release.xcconfig"; sourceTree = "<group>"; };
 		CF5A11DB1E3F97C7005101CA /* OpenIDConnectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenIDConnectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF5A11E01E3F97C7005101CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF5A11E01E3F97C7005101CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF5A11E31E3F97C7005101CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF5A11E51E3F97C7005101CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5A11E81E3F97C7005101CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		CF5A11FE1E3F97C7005101CA /* OpenIDConnectExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIDConnectExampleUITests.swift; sourceTree = "<group>"; };
 		CF5A12001E3F97C7005101CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginGovService.swift; sourceTree = "<group>"; };
+		CF9E2A5D1E40E5DE00836E39 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		CFA1B1321E3FE62A0023F52D /* saml_test_sp.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = saml_test_sp.p12; sourceTree = "<group>"; };
 		D276DDAB6540A90CE7F0F49F /* Pods-OpenIDConnectExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIDConnectExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.debug.xcconfig"; sourceTree = "<group>"; };
 		DDD0F9398574A7DB5B2890E1 /* Pods_OpenIDConnectExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenIDConnectExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,12 +112,13 @@
 			children = (
 				CFA1B1321E3FE62A0023F52D /* saml_test_sp.p12 */,
 				CF5A11DE1E3F97C7005101CA /* AppDelegate.swift */,
-				CF5A11E01E3F97C7005101CA /* ViewController.swift */,
+				CF5A11E01E3F97C7005101CA /* LoginViewController.swift */,
 				CF5A11E21E3F97C7005101CA /* Main.storyboard */,
 				CF5A11E51E3F97C7005101CA /* Assets.xcassets */,
 				CF5A11E71E3F97C7005101CA /* LaunchScreen.storyboard */,
 				CF5A11EA1E3F97C7005101CA /* Info.plist */,
 				CF5EE1081E3F9DBD007FFB7F /* LoginGovService.swift */,
+				CF9E2A5D1E40E5DE00836E39 /* ProfileController.swift */,
 			);
 			path = OpenIDConnectExample;
 			sourceTree = "<group>";
@@ -341,9 +344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5A11E11E3F97C7005101CA /* ViewController.swift in Sources */,
+				CF5A11E11E3F97C7005101CA /* LoginViewController.swift in Sources */,
 				CF5A11DF1E3F97C7005101CA /* AppDelegate.swift in Sources */,
 				CF5EE1091E3F9DBD007FFB7F /* LoginGovService.swift in Sources */,
+				CF9E2A5E1E40E5DE00836E39 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

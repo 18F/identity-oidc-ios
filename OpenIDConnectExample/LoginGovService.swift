@@ -80,4 +80,24 @@ class LoginGovService {
                   .privateKeyCertificatePassphrase("")!
                   .encode
     }
+
+    static func loadUserinfo(accessToken : String, callback : @escaping (Any?, Error?) -> Void) {
+        var urlRequest = URLRequest.init(url: baseURL.appendingPathComponent("/openid_connect/userinfo"))
+        urlRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+
+        let urlSession = URLSession.init(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
+        let dataTask = urlSession.dataTask(with: urlRequest) { (data : Data?, response : URLResponse?, err : Error?) in
+            var json : Any?
+            var error = err
+            if  let data = data {
+                do {
+                    try json = JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                } catch (let err) {
+                    error = err
+                }
+            }
+            callback(json, error)
+        }
+        dataTask.resume()
+    }
 }

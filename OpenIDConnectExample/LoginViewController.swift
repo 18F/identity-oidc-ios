@@ -1,0 +1,92 @@
+//
+//  ViewController.swift
+//  OpenIDConnectExample
+//
+//  Created by Zachary Margolis on 1/30/17.
+//  Copyright © 2017 GSA. All rights reserved.
+//
+
+import UIKit
+import AppAuth
+
+class LoginViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.clearError()
+        self.stopSpinning()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var errorLabel: UILabel!
+
+    @IBAction func didSelectLoginGov(_ sender: Any) {
+        self.clearError()
+        self.startSpinning()
+        
+        let delegate = UIApplication.shared.delegate! as! AppDelegate
+
+        let authRequest = LoginGovService.authorizationRequest()
+        delegate.currentAuthorizationSession = OIDAuthorizationService
+            .present(authRequest, presenting: self, callback: { (authReponse: OIDAuthorizationResponse?, error: Error?) in
+
+            guard let authorizationCode = authReponse?.authorizationCode else {
+                self.showError(error: error!)
+                return
+            }
+                
+            let tokenRequest = LoginGovService.tokenRequest(authorizationCode: authorizationCode)
+            OIDAuthorizationService.perform(tokenRequest, callback: { (tokenResponse : OIDTokenResponse?, error : Error?) in
+                guard let accessToken = tokenResponse?.accessToken else {
+                    self.showError(error: error!)
+                    return
+                }
+                
+                LoginGovService.loadUserinfo(accessToken: accessToken, callback: { (json : Any?, error : Error?) in
+                    if let json = json {
+                        self.showProfile(json: json)
+                    } else if let error = error {
+                        self.showError(error: error)
+                    }
+                })
+            })
+        })
+    }
+
+    private func showProfile(json : Any) {
+        self.stopSpinning()
+
+        let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileNavigation") as! UINavigationController
+
+        let profileController = navigationController.viewControllers.first as! ProfileController
+        profileController.updateProfile(json: json)
+
+        self.present(navigationController, animated: true, completion: nil)
+    }
+
+    private func showError(error : Error) {
+        self.stopSpinning()
+
+        self.errorLabel.text = error.localizedDescription
+        self.errorLabel.isHidden = false;
+    }
+
+    private func clearError() {
+        self.errorLabel.isHidden = true
+    }
+
+    private func startSpinning() {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+    }
+
+    private func stopSpinning() {
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
+    }
+}
+
