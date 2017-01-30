@@ -1,0 +1,1 @@
+../../../JWT/Classes/Algorithms/HSFamily/JWTAlgorithmHS512.h
