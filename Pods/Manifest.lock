@@ -1,0 +1,18 @@
+PODS:
+  - AppAuth (0.7.1)
+  - Base64 (1.1.2)
+  - JWT (2.2.0):
+    - Base64 (~> 1.1.2)
+
+DEPENDENCIES:
+  - AppAuth (= 0.7.1)
+  - JWT (= 2.2.0)
+
+SPEC CHECKSUMS:
+  AppAuth: c56d352b0d50bb34dbb302d7ba50b20aa6b6ae89
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
+  JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
+
+PODFILE CHECKSUM: f60a244f30591adbb10f57ac30899e052ce4b57d
+
+COCOAPODS: 1.1.1

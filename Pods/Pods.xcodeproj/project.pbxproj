@@ -1,0 +1,1206 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03564429EFA015EB0CB10F809BB91AFE /* JWTCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 8473BB3CE734A135C935B28D8F9B76F8 /* JWTCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04FE4B8DF889CDC972F9DDB10B4309F2 /* OIDServiceDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = F8481614221563E64B9E45A31AAFF2AE /* OIDServiceDiscovery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0897A26B3804CF0309918D2AF586634C /* OIDAuthorizationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 81BBAA8FFF66583229DD5B0D3168FA44 /* OIDAuthorizationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09DCA7F95FD5C9FBACB81110D6E2C675 /* OIDError.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0BFC6C5A0AEB5F40DDB898E9741FC /* OIDError.m */; };
+		0D1B02523FAD4FEA08532986C2CC4D9E /* OIDTokenUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D2DDD886AE8A1B0E1E65F4B34853DC6E /* OIDTokenUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12B480FC5458C8916933BDBDCA0056F7 /* JWTAlgorithmFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B44C966CA9E96E8CC5C0100BB57BE6 /* JWTAlgorithmFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13A8FA59BBD37888DAF84309AF8E38E9 /* OIDScopeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF704C3DD1EBF46D21B95C98EBB24E3 /* OIDScopeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1417BD614D6C59E9C5D7F3AE4809A648 /* JWTBase64Coder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF12B9E80E54F82176206F61F304340 /* JWTBase64Coder.m */; };
+		14BFAAE3DA5473148C8513CE8B4E6001 /* JWTDeprecations.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB22C4C62FFD3BF4C30B58514006289 /* JWTDeprecations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1679F359921879B12FFD70CB6ABD8DFC /* MF_Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03480E0128A36AB1FB242D671AA01242 /* MF_Base64Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		173BFC9EA5721091A62C7D7F87E0632F /* OIDTokenUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E99405A1BC5201081210A1EB76126ED /* OIDTokenUtilities.m */; };
+		182E97636A153EE5C351349A1DFF724B /* JWTAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = B365937AFB6F1A4AFFC96C3BF336E719 /* JWTAlgorithm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AD85EA85FBBF6FAEB77DD550510C129 /* OIDAuthorizationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B896685A9CABDF44A9A730B7E6DECB /* OIDAuthorizationRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C1B2A9A9CB8966A8BD93181840620A9 /* JWTClaimsSetVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39D6F9BD59E5453B4BA64FC61E1434 /* JWTClaimsSetVerifier.m */; };
+		1DBDE74E7234F7F13CB7B03DBDB6943C /* OIDAuthorizationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF607986279BDAC7D8A22F37E8E1D77 /* OIDAuthorizationResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E18489D34047F312C152B31425F582F /* OIDAuthorizationService+IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B98D7E8E5F4961738CEBB2E85FCC0A1 /* OIDAuthorizationService+IOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21DF779A0FADD5267C1B79BFD649D0CF /* JWTCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 59230E296FEFDC4B8A21CE76223E40B8 /* JWTCoding.m */; };
+		2358A89173DEDD74555DE33E10C30440 /* JWTAlgorithmRSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4D1CD72894A94B17979D7E57810190 /* JWTAlgorithmRSBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23C2DD938E8BA80523A392AB35D3F391 /* Pods-OpenIDConnectExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 276DB7441A9FD7DB5DD72031522AA695 /* Pods-OpenIDConnectExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25EEC3F3BBA664B76B0883EE71F2016D /* JWTAlgorithmHS512.h in Headers */ = {isa = PBXBuildFile; fileRef = 28ECAD0BE43A9CBEE602F982207D136B /* JWTAlgorithmHS512.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A554F281CB97F7CE80CC184349DEC6A /* JWTClaimsSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA47F1F1DF8DD63EC2C502121E5C9D9 /* JWTClaimsSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3123B6E28D40FD4096EE2C5198B7D5E6 /* OIDFieldMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = D9B8D01810E8116B4FB6EAEA52CDCCDD /* OIDFieldMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33865FEE982B260463E63B961DB385E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBD7547E7C20FC0AAEB8F872BA94D4E /* Security.framework */; };
+		36459EFBCA63AD9E5DE342785F614B18 /* JWTAlgorithmDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AEE2F623AD9B6C659C88E4BB8DADB4 /* JWTAlgorithmDataHolder.m */; };
+		3C05DF646F6067AE76ED2B2707392109 /* OIDResponseTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 120534869D4182393D3CEDB942E81FC8 /* OIDResponseTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DDCE7A8CCFF83C8F53FD88D0BED8489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */; };
+		3EC50952B6EF2E750AE2D40DD9CED6B4 /* OIDError.h in Headers */ = {isa = PBXBuildFile; fileRef = 748483FEA8D5382CBC9F94491AA15252 /* OIDError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		426B9B1010FD474F3413B7B2AD4A0709 /* OIDDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = BAABA3709CFF71F1CC07CF65738BC9D1 /* OIDDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4369D460F82F8E2166A0B84B402F4675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */; };
+		43DEADBD31BE9740CDC1FF6E84139FB9 /* JWTBase64Coder.h in Headers */ = {isa = PBXBuildFile; fileRef = CA86CF17F5C81B3B268A08310409E365 /* JWTBase64Coder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44F74012D83DA05262DA5FA01D12CB78 /* OIDScopeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A8996284E1CCE9E2AA929592D2506FCF /* OIDScopeUtilities.m */; };
+		4A5DACB438FE43169FDF1C3B774D3925 /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = C453FA27EC376FDEA2B14366BAA917BE /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B9CEB4E1A74DB3E9DC1ABC8484172F8 /* OIDErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C24689670A58FAA68DE575CFF72D2D2 /* OIDErrorUtilities.m */; };
+		4E25157574C117113EFD879638A7F0B1 /* OIDAuthState+IOS.m in Sources */ = {isa = PBXBuildFile; fileRef = DB480ECB801AA80B5BAD6627169F3497 /* OIDAuthState+IOS.m */; };
+		4F88E1FFC02D53264AAD469A1DFD5A43 /* JWTAlgorithmNone.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BF22ED7529DF93D89F69F8467FCF5C /* JWTAlgorithmNone.m */; };
+		5175A241A7D7F6C8431DB7FF9C1FC66D /* JWTAlgorithmHSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E948B215DC07DCAE9F0606FCE9C0F8FD /* JWTAlgorithmHSBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		528FB38C4E57767CDAE835A902AF2980 /* OIDFieldMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7019C3C47D3DF8CB7F1E4447DFF3A3 /* OIDFieldMapping.m */; };
+		550A0254DC3B4C648FB1A9D8121CB728 /* OIDURLQueryComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = A9F6A93375BBC73659CE2D64CBAEF185 /* OIDURLQueryComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56D4179F4D474E2CB5CC0358F8F84F43 /* JWTAlgorithmHS256.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FFB2EEBF500703AC972E8F92EB04B8D /* JWTAlgorithmHS256.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		599794BE57B1B92ADB8EA5EE6A34A2E9 /* OIDResponseTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B11C1D85658BAA6E44984381F5906A /* OIDResponseTypes.m */; };
+		5F0FE80E966C87314397310F644DC9BD /* Base64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CF438DDB69D2EF631E9E9A730D6A /* Base64.framework */; };
+		636ED5C38BF735D374889738163BEAF8 /* JWTClaimsSetSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = BB350BEB171FC069A8FCDF9E2D4C669F /* JWTClaimsSetSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64BE5C76E0FEC38118DDCC568D5DE5B1 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC58DC9823DD0F7C646C8B0A34D4E11 /* MF_Base64Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		67FA8775EC6FC5149AF464DBB8FA2D37 /* JWTAlgorithmDataHolderChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF6B6C2D1F15E9B9BBFC3351A2312B9 /* JWTAlgorithmDataHolderChain.m */; };
+		695D2766862AE19CF6AF68FD81808036 /* JWTAlgorithmHS384.h in Headers */ = {isa = PBXBuildFile; fileRef = E37FEBC39EAED8ED56826D919AEA11E0 /* JWTAlgorithmHS384.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B52DA45ABBD6CA970B756FDFE1DECDC /* OIDURLQueryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E58B49FF20DB07B1D4947C735CF60A /* OIDURLQueryComponent.m */; };
+		6EF7F96DE8C9A6EB366BE96B2DBC40D5 /* OIDServiceConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A52F37B93C7C2C7440D5F7B1B6B941 /* OIDServiceConfiguration.m */; };
+		72515B7E798476F0BAC30E326BE1E3AC /* OIDTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A44FC18A88B5453331D6E6516DB1434 /* OIDTokenRequest.m */; };
+		764C80CA2C645A0E8200981B014FFEB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */; };
+		7C981AA277086811C5DA8CAED22FC0B2 /* JWTAlgorithmHS256.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1BB0FB892ED96891601CBCD5AEAB80 /* JWTAlgorithmHS256.m */; };
+		7D048F3ED910989DFBCFA52047B85D53 /* OIDGrantTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D41C185FA261F752AC085E431284A5 /* OIDGrantTypes.m */; };
+		82D6AE3F1D04112EBAB647A8CB4D0347 /* JWTClaimsSetSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F91374BD2F18B17FFA1B19C9FB12799B /* JWTClaimsSetSerializer.m */; };
+		855F3C5D3D9DD7B1DC76C2F23BB15C7F /* OIDAuthorizationUICoordinatorIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = EB58B169BC8B97C98C0723F242E01B7D /* OIDAuthorizationUICoordinatorIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85F05215443DFB3B9D3B9E0DBC59D4AC /* JWTAlgorithmHS512.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD601C81C88465D79F0CFD9F1F72445 /* JWTAlgorithmHS512.m */; };
+		8A49B374D458711BCFAFC14CBEF468B9 /* OIDGrantTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C180A3DA9D5CF5E50C5859C57AC0B1C0 /* OIDGrantTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C1D6E61F8BC5C4DF16764609C831D39 /* AppAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A50C85E25542D641D84B03FFC8F70BB /* AppAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DAE14D02A9CDCA2A37FB8663616D52E /* OIDTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 91C3611F3429AE0B3CFF314CFE1EF37B /* OIDTokenResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DF27A4C9B970CD0A1383C04516DBF3C /* OIDAuthStateErrorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DEBD516AFCFCB06D9B3A01967A5CA00 /* OIDAuthStateErrorDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EFD8876859AE883639E2F382339C3D7 /* Base64-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC299BF11E46E05F8985B22B015E4D97 /* Base64-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FE7ABB19C17FB8D56FBF7BAB3E13885 /* JWTClaimsSetVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 101308C57D8AA24C78E4166745A8EDC7 /* JWTClaimsSetVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94F68C78A35AF10317F1658C046270D5 /* OIDAuthorizationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C69E0E193C25693210A80C1F330C8628 /* OIDAuthorizationResponse.m */; };
+		988551E340F39E9DDF2F0D0A37697025 /* OIDAuthState+IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = CD542EBE52D3DE5AE1494DCCE54E44CD /* OIDAuthState+IOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99ACC18209AA4BB24C1B10EAD5E2550A /* AppAuth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0CA772F76FABD7166C93006F2E76C4 /* AppAuth-dummy.m */; };
+		A1EA9313BD2919EAD136A6117F5FEA01 /* JWTAlgorithmHS384.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE675B04D39F8E14CB06E80C888E4B4 /* JWTAlgorithmHS384.m */; };
+		A5D95128D92A21426818F15534A55F87 /* OIDScopes.h in Headers */ = {isa = PBXBuildFile; fileRef = F5068901B021E1EEA35930DDA04199B2 /* OIDScopes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6B488A53EC42A6DA62D62E2A0BE2AF0 /* OIDAuthorizationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBCC875BF764F09C614371963430AE /* OIDAuthorizationService.m */; };
+		A6DE8DD5DA58E4DE8F6CD76DBCB4F900 /* JWTAlgorithmDataHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 097B9D0B86C064319B6C81023BFBE16E /* JWTAlgorithmDataHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00F252CE31D623BF81E7D0485648EC9 /* JWT-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6809904D2E56ACA941DBD59219AF489 /* JWT-dummy.m */; };
+		B0605288099CBBBE07F2211A67E8F62B /* OIDScopes.m in Sources */ = {isa = PBXBuildFile; fileRef = 104D1BA88E840CD2F14686BECCA637A4 /* OIDScopes.m */; };
+		B25B4A1401DB5B846500543931B86B84 /* JWTAlgorithmNone.h in Headers */ = {isa = PBXBuildFile; fileRef = 7890380A9170ECAB756F94B31E976FAE /* JWTAlgorithmNone.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B295974AF4D895F2EE645F0E3AE2C3D3 /* JWTClaimsSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865C241809B30EDD5CE5DB658D7D126 /* JWTClaimsSet.m */; };
+		BAE957E9019F2C80602E48F4293A9205 /* Pods-OpenIDConnectExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EF5B01E5D340AAA7E54F66FF8FCA5E /* Pods-OpenIDConnectExample-dummy.m */; };
+		C1EDD4B78D81BD3E32E4F75AD3731C80 /* OIDAuthState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CE58A9D3FEEB0648F13B7B6456BA03B /* OIDAuthState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2BBAEB73154D11D8D54E844623664F9 /* OIDTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF738CFB93E85DABD590BDA7459F51 /* OIDTokenResponse.m */; };
+		C35F95F4814914CAF49F7BB772062779 /* JWTClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B45938FA2DDF57BB1EDA6462981C3C /* JWTClaim.m */; };
+		C528BF1AA5F073565C21C248BD8FA8BA /* JWT-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A298C73FE84DF55740F820488F09FB8B /* JWT-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C66DF94893571FFFC3D18360A57029F0 /* OIDAuthorizationUICoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 72AF27B23CEA622BCFD2F76678921960 /* OIDAuthorizationUICoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CABB8EEA45A9F5D42B4007448D06F09A /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4507471F0D52BC2FF9C7AF0CBDC9F964 /* SafariServices.framework */; };
+		CC01F710ADECFF21C80CD635CCAC0D4B /* OIDServiceConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EDA2959F67E4FC4651CC9C36AC7535 /* OIDServiceConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCFB094368B5345A86D7D44850313D2C /* OIDErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 485823393A6980F7DA672B1C3C28130D /* OIDErrorUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D548F3287FB3D00526AE6CD75B79059E /* OIDAuthorizationUICoordinatorIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 52118485057109BBA72980BEDAD0207D /* OIDAuthorizationUICoordinatorIOS.m */; };
+		D5F0B57D3580342AE857E1D354D6F7BC /* JWTAlgorithmHSBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CC0DF1B9CB7B124CB40AA2A631E7A6 /* JWTAlgorithmHSBase.m */; };
+		D85F0BB3FF73D05B3FAA19CBFF350F05 /* OIDAuthStateChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9979016405832564B6851F07AB6F6605 /* OIDAuthStateChangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC25CE95F2F1A02BC9FAF78590C15E72 /* OIDTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E40780C2886536DE3A00C9EE34B45C /* OIDTokenRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCD2358E8CC397AADAEF32EAAF6720F3 /* Base64-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD02F491635938B04027C441EB085D38 /* Base64-dummy.m */; };
+		E092DC8E64714C068AD71638E4D0B992 /* OIDServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD5D1D22767E7AA8E8E47773DC05D /* OIDServiceDiscovery.m */; };
+		E2E6FC383EB17D9F0B2E3512876C5F5C /* JWTAlgorithmFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C4038E215F3DDB927CCB55C0ECE72 /* JWTAlgorithmFactory.m */; };
+		E37CA3AE0DB54F2281AAB12CC0B3ADB9 /* JWTRSAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = C2669E6D8B7AFCC2FF3B39258F0756DB /* JWTRSAlgorithm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3B731205873601B8B5B864A85907E71 /* OIDAuthState.m in Sources */ = {isa = PBXBuildFile; fileRef = 832D29850A9D61434618DC35020E28C2 /* OIDAuthState.m */; };
+		E4384CA405BC178609B79CFAFD77489B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */; };
+		EDBCD80D84DC5FF98025E0CD753504C4 /* OIDAuthorizationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 839530416E5585A87DD9507323F1C3F3 /* OIDAuthorizationRequest.m */; };
+		EE046C0808FC5B7F5D7CBE1A46375BFB /* OIDAuthorizationService+IOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AB82629F767718C866743E0D2ACEAE /* OIDAuthorizationService+IOS.m */; };
+		EF74546FDB9F7D22BEE79AE82AD31703 /* JWTClaim.h in Headers */ = {isa = PBXBuildFile; fileRef = CD817180BBE26CEF8C7B877E66E09184 /* JWTClaim.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EFBE735EE3164438ACAA1B4C9F615B8F /* JWTAlgorithmDataHolderChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FFCFB934D713FF4533368D8EAC77FC6 /* JWTAlgorithmDataHolderChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F84E02BC0092D6F89AE53914666769E1 /* AppAuth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9289B78171C74FF6E4FFF31DE3DE3417 /* AppAuth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8866D91C0AF370D124B599DA343B535 /* JWTAlgorithmRSBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC5C51D5DDA877C4764827D597C906 /* JWTAlgorithmRSBase.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46EB161CAFC3F0FEA41E02F386747DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A9F9106B32ACF952B66B2EE009513F;
+			remoteInfo = Base64;
+		};
+		637622213AAF8E50D569CCEE3D0ED7B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A9F9106B32ACF952B66B2EE009513F;
+			remoteInfo = Base64;
+		};
+		A93F82515BFC285C7E987C64B6EAFD88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53F6FDC13F620DEF25DC511D8B05C851;
+			remoteInfo = AppAuth;
+		};
+		C3F3B5FCE364C6B14467E320B22FEF3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13F3ECEDD8FACC405786411AC2E31ABC;
+			remoteInfo = JWT;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00B1D0498012769B12CC861B750DBB48 /* Base64-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-prefix.pch"; sourceTree = "<group>"; };
+		02B44C966CA9E96E8CC5C0100BB57BE6 /* JWTAlgorithmFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmFactory.h; path = Classes/Algorithms/Base/JWTAlgorithmFactory.h; sourceTree = "<group>"; };
+		03480E0128A36AB1FB242D671AA01242 /* MF_Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = Base64/MF_Base64Additions.h; sourceTree = "<group>"; };
+		097B9D0B86C064319B6C81023BFBE16E /* JWTAlgorithmDataHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolder.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.h; sourceTree = "<group>"; };
+		09D41C185FA261F752AC085E431284A5 /* OIDGrantTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDGrantTypes.m; path = Source/OIDGrantTypes.m; sourceTree = "<group>"; };
+		0A44FC18A88B5453331D6E6516DB1434 /* OIDTokenRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDTokenRequest.m; path = Source/OIDTokenRequest.m; sourceTree = "<group>"; };
+		0ABC5C51D5DDA877C4764827D597C906 /* JWTAlgorithmRSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmRSBase.m; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.m; sourceTree = "<group>"; };
+		101308C57D8AA24C78E4166745A8EDC7 /* JWTClaimsSetVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetVerifier.h; path = Classes/ClaimSet/JWTClaimsSetVerifier.h; sourceTree = "<group>"; };
+		104D1BA88E840CD2F14686BECCA637A4 /* OIDScopes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDScopes.m; path = Source/OIDScopes.m; sourceTree = "<group>"; };
+		120534869D4182393D3CEDB942E81FC8 /* OIDResponseTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDResponseTypes.h; path = Source/OIDResponseTypes.h; sourceTree = "<group>"; };
+		136A277033E4F62514C81BECB7BD2BB5 /* AppAuth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AppAuth-prefix.pch"; sourceTree = "<group>"; };
+		1A5D27654CF316FF0A1628C0A64BC1F9 /* Pods-OpenIDConnectExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OpenIDConnectExample-resources.sh"; sourceTree = "<group>"; };
+		1CE58A9D3FEEB0648F13B7B6456BA03B /* OIDAuthState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthState.h; path = Source/OIDAuthState.h; sourceTree = "<group>"; };
+		1D8542B56BE6B314C304FB01EDF454D1 /* Pods-OpenIDConnectExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OpenIDConnectExample.release.xcconfig"; sourceTree = "<group>"; };
+		1E99405A1BC5201081210A1EB76126ED /* OIDTokenUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDTokenUtilities.m; path = Source/OIDTokenUtilities.m; sourceTree = "<group>"; };
+		26A16310BB3D496DA0C0CB7181048ACD /* JWT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWT.xcconfig; sourceTree = "<group>"; };
+		276DB7441A9FD7DB5DD72031522AA695 /* Pods-OpenIDConnectExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OpenIDConnectExample-umbrella.h"; sourceTree = "<group>"; };
+		28ECAD0BE43A9CBEE602F982207D136B /* JWTAlgorithmHS512.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS512.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.h; sourceTree = "<group>"; };
+		397C552F354D06DB132F1FF03956C0DA /* Base64.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Base64.modulemap; sourceTree = "<group>"; };
+		43D72A7D9C02638C6FFF31E518D95382 /* JWT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JWT.modulemap; sourceTree = "<group>"; };
+		4507471F0D52BC2FF9C7AF0CBDC9F964 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
+		47EF5B01E5D340AAA7E54F66FF8FCA5E /* Pods-OpenIDConnectExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OpenIDConnectExample-dummy.m"; sourceTree = "<group>"; };
+		485823393A6980F7DA672B1C3C28130D /* OIDErrorUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDErrorUtilities.h; path = Source/OIDErrorUtilities.h; sourceTree = "<group>"; };
+		4DEBD516AFCFCB06D9B3A01967A5CA00 /* OIDAuthStateErrorDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthStateErrorDelegate.h; path = Source/OIDAuthStateErrorDelegate.h; sourceTree = "<group>"; };
+		4FFB2EEBF500703AC972E8F92EB04B8D /* JWTAlgorithmHS256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS256.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.h; sourceTree = "<group>"; };
+		4FFCFB934D713FF4533368D8EAC77FC6 /* JWTAlgorithmDataHolderChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolderChain.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.h; sourceTree = "<group>"; };
+		50E40780C2886536DE3A00C9EE34B45C /* OIDTokenRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDTokenRequest.h; path = Source/OIDTokenRequest.h; sourceTree = "<group>"; };
+		52118485057109BBA72980BEDAD0207D /* OIDAuthorizationUICoordinatorIOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthorizationUICoordinatorIOS.m; path = Source/iOS/OIDAuthorizationUICoordinatorIOS.m; sourceTree = "<group>"; };
+		59230E296FEFDC4B8A21CE76223E40B8 /* JWTCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTCoding.m; path = Classes/Coding/JWTCoding.m; sourceTree = "<group>"; };
+		63FBCC875BF764F09C614371963430AE /* OIDAuthorizationService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthorizationService.m; path = Source/OIDAuthorizationService.m; sourceTree = "<group>"; };
+		652D61863C7DEF41F942D03B5B395E67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65AB82629F767718C866743E0D2ACEAE /* OIDAuthorizationService+IOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OIDAuthorizationService+IOS.m"; path = "Source/iOS/OIDAuthorizationService+IOS.m"; sourceTree = "<group>"; };
+		668C4038E215F3DDB927CCB55C0ECE72 /* JWTAlgorithmFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmFactory.m; path = Classes/Algorithms/Base/JWTAlgorithmFactory.m; sourceTree = "<group>"; };
+		67E69B4EAC3392895A4D2C4C9FCAB2BA /* AppAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppAuth.xcconfig; sourceTree = "<group>"; };
+		68AEE2F623AD9B6C659C88E4BB8DADB4 /* JWTAlgorithmDataHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolder.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.m; sourceTree = "<group>"; };
+		6DFF738CFB93E85DABD590BDA7459F51 /* OIDTokenResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDTokenResponse.m; path = Source/OIDTokenResponse.m; sourceTree = "<group>"; };
+		72AF27B23CEA622BCFD2F76678921960 /* OIDAuthorizationUICoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationUICoordinator.h; path = Source/OIDAuthorizationUICoordinator.h; sourceTree = "<group>"; };
+		73A52F37B93C7C2C7440D5F7B1B6B941 /* OIDServiceConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDServiceConfiguration.m; path = Source/OIDServiceConfiguration.m; sourceTree = "<group>"; };
+		748483FEA8D5382CBC9F94491AA15252 /* OIDError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDError.h; path = Source/OIDError.h; sourceTree = "<group>"; };
+		74A1EFB7CB323641B993265340B51DC1 /* Pods-OpenIDConnectExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OpenIDConnectExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		75B45938FA2DDF57BB1EDA6462981C3C /* JWTClaim.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaim.m; path = Classes/ClaimSet/JWTClaim.m; sourceTree = "<group>"; };
+		774AC44361C9CDE7525BA9E956CEA4C2 /* Pods-OpenIDConnectExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OpenIDConnectExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7865C241809B30EDD5CE5DB658D7D126 /* JWTClaimsSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSet.m; path = Classes/ClaimSet/JWTClaimsSet.m; sourceTree = "<group>"; };
+		7890380A9170ECAB756F94B31E976FAE /* JWTAlgorithmNone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmNone.h; path = Classes/Algorithms/Base/JWTAlgorithmNone.h; sourceTree = "<group>"; };
+		7A50C85E25542D641D84B03FFC8F70BB /* AppAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppAuth.h; path = Source/AppAuth.h; sourceTree = "<group>"; };
+		7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7DF704C3DD1EBF46D21B95C98EBB24E3 /* OIDScopeUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDScopeUtilities.h; path = Source/OIDScopeUtilities.h; sourceTree = "<group>"; };
+		81BBAA8FFF66583229DD5B0D3168FA44 /* OIDAuthorizationService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationService.h; path = Source/OIDAuthorizationService.h; sourceTree = "<group>"; };
+		832D29850A9D61434618DC35020E28C2 /* OIDAuthState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthState.m; path = Source/OIDAuthState.m; sourceTree = "<group>"; };
+		839530416E5585A87DD9507323F1C3F3 /* OIDAuthorizationRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthorizationRequest.m; path = Source/OIDAuthorizationRequest.m; sourceTree = "<group>"; };
+		8473BB3CE734A135C935B28D8F9B76F8 /* JWTCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTCoding.h; path = Classes/Coding/JWTCoding.h; sourceTree = "<group>"; };
+		852DBE2AC495E2E5552FB8DC59E80650 /* Pods-OpenIDConnectExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OpenIDConnectExample.modulemap"; sourceTree = "<group>"; };
+		85E58B49FF20DB07B1D4947C735CF60A /* OIDURLQueryComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDURLQueryComponent.m; path = Source/OIDURLQueryComponent.m; sourceTree = "<group>"; };
+		86B896685A9CABDF44A9A730B7E6DECB /* OIDAuthorizationRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationRequest.h; path = Source/OIDAuthorizationRequest.h; sourceTree = "<group>"; };
+		8B39C3CEC3E30E4F6E6D66DAB76CED60 /* AppAuth.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AppAuth.modulemap; sourceTree = "<group>"; };
+		8B98D7E8E5F4961738CEBB2E85FCC0A1 /* OIDAuthorizationService+IOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OIDAuthorizationService+IOS.h"; path = "Source/iOS/OIDAuthorizationService+IOS.h"; sourceTree = "<group>"; };
+		8DB22C4C62FFD3BF4C30B58514006289 /* JWTDeprecations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTDeprecations.h; path = Classes/Supplement/JWTDeprecations.h; sourceTree = "<group>"; };
+		8FD601C81C88465D79F0CFD9F1F72445 /* JWTAlgorithmHS512.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS512.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.m; sourceTree = "<group>"; };
+		91C3611F3429AE0B3CFF314CFE1EF37B /* OIDTokenResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDTokenResponse.h; path = Source/OIDTokenResponse.h; sourceTree = "<group>"; };
+		91CB1840A25ADFA344470252FF95D51B /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWT.framework; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9289B78171C74FF6E4FFF31DE3DE3417 /* AppAuth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AppAuth-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93B11C1D85658BAA6E44984381F5906A /* OIDResponseTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDResponseTypes.m; path = Source/OIDResponseTypes.m; sourceTree = "<group>"; };
+		9979016405832564B6851F07AB6F6605 /* OIDAuthStateChangeDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthStateChangeDelegate.h; path = Source/OIDAuthStateChangeDelegate.h; sourceTree = "<group>"; };
+		9B6DD5D1D22767E7AA8E8E47773DC05D /* OIDServiceDiscovery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDServiceDiscovery.m; path = Source/OIDServiceDiscovery.m; sourceTree = "<group>"; };
+		9C24689670A58FAA68DE575CFF72D2D2 /* OIDErrorUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDErrorUtilities.m; path = Source/OIDErrorUtilities.m; sourceTree = "<group>"; };
+		9D0CA772F76FABD7166C93006F2E76C4 /* AppAuth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AppAuth-dummy.m"; sourceTree = "<group>"; };
+		9D39D6F9BD59E5453B4BA64FC61E1434 /* JWTClaimsSetVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetVerifier.m; path = Classes/ClaimSet/JWTClaimsSetVerifier.m; sourceTree = "<group>"; };
+		A298C73FE84DF55740F820488F09FB8B /* JWT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-umbrella.h"; sourceTree = "<group>"; };
+		A2CC0DF1B9CB7B124CB40AA2A631E7A6 /* JWTAlgorithmHSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHSBase.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.m; sourceTree = "<group>"; };
+		A680A9B774F49FF8DD2BA89E06014FC1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8996284E1CCE9E2AA929592D2506FCF /* OIDScopeUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDScopeUtilities.m; path = Source/OIDScopeUtilities.m; sourceTree = "<group>"; };
+		A9F6A93375BBC73659CE2D64CBAEF185 /* OIDURLQueryComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDURLQueryComponent.h; path = Source/OIDURLQueryComponent.h; sourceTree = "<group>"; };
+		AA1BB0FB892ED96891601CBCD5AEAB80 /* JWTAlgorithmHS256.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS256.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.m; sourceTree = "<group>"; };
+		ABF12B9E80E54F82176206F61F304340 /* JWTBase64Coder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTBase64Coder.m; path = Classes/Supplement/JWTBase64Coder.m; sourceTree = "<group>"; };
+		AD02F491635938B04027C441EB085D38 /* Base64-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base64-dummy.m"; sourceTree = "<group>"; };
+		ADB7964084A2AFEBE9BAB638EFEF3A99 /* Base64.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base64.xcconfig; sourceTree = "<group>"; };
+		AE7B98900BAB303C661A00551391F391 /* Pods-OpenIDConnectExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OpenIDConnectExample.debug.xcconfig"; sourceTree = "<group>"; };
+		AFF607986279BDAC7D8A22F37E8E1D77 /* OIDAuthorizationResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationResponse.h; path = Source/OIDAuthorizationResponse.h; sourceTree = "<group>"; };
+		B21FD331EB8B5EFA865F506EC8E36F83 /* Pods-OpenIDConnectExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OpenIDConnectExample-frameworks.sh"; sourceTree = "<group>"; };
+		B365937AFB6F1A4AFFC96C3BF336E719 /* JWTAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithm.h; path = Classes/Algorithms/Base/JWTAlgorithm.h; sourceTree = "<group>"; };
+		B6809904D2E56ACA941DBD59219AF489 /* JWT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWT-dummy.m"; sourceTree = "<group>"; };
+		BAABA3709CFF71F1CC07CF65738BC9D1 /* OIDDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDDefines.h; path = Source/OIDDefines.h; sourceTree = "<group>"; };
+		BB350BEB171FC069A8FCDF9E2D4C669F /* JWTClaimsSetSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetSerializer.h; path = Classes/ClaimSet/JWTClaimsSetSerializer.h; sourceTree = "<group>"; };
+		BC299BF11E46E05F8985B22B015E4D97 /* Base64-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-umbrella.h"; sourceTree = "<group>"; };
+		BFF6B6C2D1F15E9B9BBFC3351A2312B9 /* JWTAlgorithmDataHolderChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolderChain.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.m; sourceTree = "<group>"; };
+		C180A3DA9D5CF5E50C5859C57AC0B1C0 /* OIDGrantTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDGrantTypes.h; path = Source/OIDGrantTypes.h; sourceTree = "<group>"; };
+		C1F9CF438DDB69D2EF631E9E9A730D6A /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2669E6D8B7AFCC2FF3B39258F0756DB /* JWTRSAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTRSAlgorithm.h; path = Classes/Algorithms/RSFamily/JWTRSAlgorithm.h; sourceTree = "<group>"; };
+		C3EDA2959F67E4FC4651CC9C36AC7535 /* OIDServiceConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDServiceConfiguration.h; path = Source/OIDServiceConfiguration.h; sourceTree = "<group>"; };
+		C453FA27EC376FDEA2B14366BAA917BE /* JWT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWT.h; path = Classes/JWT.h; sourceTree = "<group>"; };
+		C69E0E193C25693210A80C1F330C8628 /* OIDAuthorizationResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthorizationResponse.m; path = Source/OIDAuthorizationResponse.m; sourceTree = "<group>"; };
+		C6BF22ED7529DF93D89F69F8467FCF5C /* JWTAlgorithmNone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmNone.m; path = Classes/Algorithms/Base/JWTAlgorithmNone.m; sourceTree = "<group>"; };
+		CA86CF17F5C81B3B268A08310409E365 /* JWTBase64Coder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTBase64Coder.h; path = Classes/Supplement/JWTBase64Coder.h; sourceTree = "<group>"; };
+		CD542EBE52D3DE5AE1494DCCE54E44CD /* OIDAuthState+IOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OIDAuthState+IOS.h"; path = "Source/iOS/OIDAuthState+IOS.h"; sourceTree = "<group>"; };
+		CD817180BBE26CEF8C7B877E66E09184 /* JWTClaim.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaim.h; path = Classes/ClaimSet/JWTClaim.h; sourceTree = "<group>"; };
+		CDA47F1F1DF8DD63EC2C502121E5C9D9 /* JWTClaimsSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSet.h; path = Classes/ClaimSet/JWTClaimsSet.h; sourceTree = "<group>"; };
+		CDE675B04D39F8E14CB06E80C888E4B4 /* JWTAlgorithmHS384.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS384.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.m; sourceTree = "<group>"; };
+		D10BBE8BA3DDE1E104CB2E65DB8DDD7E /* JWT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-prefix.pch"; sourceTree = "<group>"; };
+		D1563785796B8AAE0DD6547A7D7C24C5 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base64.framework; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C0BFC6C5A0AEB5F40DDB898E9741FC /* OIDError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDError.m; path = Source/OIDError.m; sourceTree = "<group>"; };
+		D2DDD886AE8A1B0E1E65F4B34853DC6E /* OIDTokenUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDTokenUtilities.h; path = Source/OIDTokenUtilities.h; sourceTree = "<group>"; };
+		D3DE5755AEBB153ABA0A1B398C37D153 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4765DD87EFC02775ADCF0BC1FE9574B /* Pods_OpenIDConnectExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OpenIDConnectExample.framework; path = "Pods-OpenIDConnectExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B8D01810E8116B4FB6EAEA52CDCCDD /* OIDFieldMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDFieldMapping.h; path = Source/OIDFieldMapping.h; sourceTree = "<group>"; };
+		DB480ECB801AA80B5BAD6627169F3497 /* OIDAuthState+IOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OIDAuthState+IOS.m"; path = "Source/iOS/OIDAuthState+IOS.m"; sourceTree = "<group>"; };
+		DBBD7547E7C20FC0AAEB8F872BA94D4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		DD4D1CD72894A94B17979D7E57810190 /* JWTAlgorithmRSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmRSBase.h; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.h; sourceTree = "<group>"; };
+		DD62A5163BE3EB3D62E67350730AFE19 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E37FEBC39EAED8ED56826D919AEA11E0 /* JWTAlgorithmHS384.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS384.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.h; sourceTree = "<group>"; };
+		E948B215DC07DCAE9F0606FCE9C0F8FD /* JWTAlgorithmHSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHSBase.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.h; sourceTree = "<group>"; };
+		EB58B169BC8B97C98C0723F242E01B7D /* OIDAuthorizationUICoordinatorIOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationUICoordinatorIOS.h; path = Source/iOS/OIDAuthorizationUICoordinatorIOS.h; sourceTree = "<group>"; };
+		ECC58DC9823DD0F7C646C8B0A34D4E11 /* MF_Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = Base64/MF_Base64Additions.m; sourceTree = "<group>"; };
+		F5068901B021E1EEA35930DDA04199B2 /* OIDScopes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDScopes.h; path = Source/OIDScopes.h; sourceTree = "<group>"; };
+		F525A3B25EC4F2C6FBFDC5017E6F1231 /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AppAuth.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8481614221563E64B9E45A31AAFF2AE /* OIDServiceDiscovery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDServiceDiscovery.h; path = Source/OIDServiceDiscovery.h; sourceTree = "<group>"; };
+		F91374BD2F18B17FFA1B19C9FB12799B /* JWTClaimsSetSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetSerializer.m; path = Classes/ClaimSet/JWTClaimsSetSerializer.m; sourceTree = "<group>"; };
+		FB7019C3C47D3DF8CB7F1E4447DFF3A3 /* OIDFieldMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDFieldMapping.m; path = Source/OIDFieldMapping.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2833F8A86133613517D6C19583AD637D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F0FE80E966C87314397310F644DC9BD /* Base64.framework in Frameworks */,
+				E4384CA405BC178609B79CFAFD77489B /* Foundation.framework in Frameworks */,
+				33865FEE982B260463E63B961DB385E1 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761A127E27FDF32DB33C4DD5D28A6ACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4369D460F82F8E2166A0B84B402F4675 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5B184DEAE747D9FC762B59357862417 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DDCE7A8CCFF83C8F53FD88D0BED8489 /* Foundation.framework in Frameworks */,
+				CABB8EEA45A9F5D42B4007448D06F09A /* SafariServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EAB9DB133E367A671B56BFCD781A85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				764C80CA2C645A0E8200981B014FFEB8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0BDC0CD55E73FED9D1181668485EBE03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6B9BAC1EEE1E9BF2D6E61681F0F8969 /* AppAuth */,
+				9B16233018C089391013DCF25DB290FC /* Base64 */,
+				28A10B560C35C512F16F8BDAA58F98F4 /* JWT */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		27479091810486B50A3E6767036497FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F525A3B25EC4F2C6FBFDC5017E6F1231 /* AppAuth.framework */,
+				D1563785796B8AAE0DD6547A7D7C24C5 /* Base64.framework */,
+				91CB1840A25ADFA344470252FF95D51B /* JWT.framework */,
+				D4765DD87EFC02775ADCF0BC1FE9574B /* Pods_OpenIDConnectExample.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28A10B560C35C512F16F8BDAA58F98F4 /* JWT */ = {
+			isa = PBXGroup;
+			children = (
+				C453FA27EC376FDEA2B14366BAA917BE /* JWT.h */,
+				B365937AFB6F1A4AFFC96C3BF336E719 /* JWTAlgorithm.h */,
+				097B9D0B86C064319B6C81023BFBE16E /* JWTAlgorithmDataHolder.h */,
+				68AEE2F623AD9B6C659C88E4BB8DADB4 /* JWTAlgorithmDataHolder.m */,
+				4FFCFB934D713FF4533368D8EAC77FC6 /* JWTAlgorithmDataHolderChain.h */,
+				BFF6B6C2D1F15E9B9BBFC3351A2312B9 /* JWTAlgorithmDataHolderChain.m */,
+				02B44C966CA9E96E8CC5C0100BB57BE6 /* JWTAlgorithmFactory.h */,
+				668C4038E215F3DDB927CCB55C0ECE72 /* JWTAlgorithmFactory.m */,
+				4FFB2EEBF500703AC972E8F92EB04B8D /* JWTAlgorithmHS256.h */,
+				AA1BB0FB892ED96891601CBCD5AEAB80 /* JWTAlgorithmHS256.m */,
+				E37FEBC39EAED8ED56826D919AEA11E0 /* JWTAlgorithmHS384.h */,
+				CDE675B04D39F8E14CB06E80C888E4B4 /* JWTAlgorithmHS384.m */,
+				28ECAD0BE43A9CBEE602F982207D136B /* JWTAlgorithmHS512.h */,
+				8FD601C81C88465D79F0CFD9F1F72445 /* JWTAlgorithmHS512.m */,
+				E948B215DC07DCAE9F0606FCE9C0F8FD /* JWTAlgorithmHSBase.h */,
+				A2CC0DF1B9CB7B124CB40AA2A631E7A6 /* JWTAlgorithmHSBase.m */,
+				7890380A9170ECAB756F94B31E976FAE /* JWTAlgorithmNone.h */,
+				C6BF22ED7529DF93D89F69F8467FCF5C /* JWTAlgorithmNone.m */,
+				DD4D1CD72894A94B17979D7E57810190 /* JWTAlgorithmRSBase.h */,
+				0ABC5C51D5DDA877C4764827D597C906 /* JWTAlgorithmRSBase.m */,
+				CA86CF17F5C81B3B268A08310409E365 /* JWTBase64Coder.h */,
+				ABF12B9E80E54F82176206F61F304340 /* JWTBase64Coder.m */,
+				CD817180BBE26CEF8C7B877E66E09184 /* JWTClaim.h */,
+				75B45938FA2DDF57BB1EDA6462981C3C /* JWTClaim.m */,
+				CDA47F1F1DF8DD63EC2C502121E5C9D9 /* JWTClaimsSet.h */,
+				7865C241809B30EDD5CE5DB658D7D126 /* JWTClaimsSet.m */,
+				BB350BEB171FC069A8FCDF9E2D4C669F /* JWTClaimsSetSerializer.h */,
+				F91374BD2F18B17FFA1B19C9FB12799B /* JWTClaimsSetSerializer.m */,
+				101308C57D8AA24C78E4166745A8EDC7 /* JWTClaimsSetVerifier.h */,
+				9D39D6F9BD59E5453B4BA64FC61E1434 /* JWTClaimsSetVerifier.m */,
+				8473BB3CE734A135C935B28D8F9B76F8 /* JWTCoding.h */,
+				59230E296FEFDC4B8A21CE76223E40B8 /* JWTCoding.m */,
+				8DB22C4C62FFD3BF4C30B58514006289 /* JWTDeprecations.h */,
+				C2669E6D8B7AFCC2FF3B39258F0756DB /* JWTRSAlgorithm.h */,
+				AA1B06E8A8C01B6A90CC2B50CEA6CDBD /* Support Files */,
+			);
+			name = JWT;
+			path = JWT;
+			sourceTree = "<group>";
+		};
+		4366FF80F8FFC25A7602AEA65AD6E333 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1F9CF438DDB69D2EF631E9E9A730D6A /* Base64.framework */,
+				7626E910761B54202069397C519720D4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7626E910761B54202069397C519720D4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7D199C7AF56F86E0EEDBE4397B7BB452 /* Foundation.framework */,
+				4507471F0D52BC2FF9C7AF0CBDC9F964 /* SafariServices.framework */,
+				DBBD7547E7C20FC0AAEB8F872BA94D4E /* Security.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7B68358CBA8735BB703AED410472015F /* Pods-OpenIDConnectExample */ = {
+			isa = PBXGroup;
+			children = (
+				A680A9B774F49FF8DD2BA89E06014FC1 /* Info.plist */,
+				852DBE2AC495E2E5552FB8DC59E80650 /* Pods-OpenIDConnectExample.modulemap */,
+				774AC44361C9CDE7525BA9E956CEA4C2 /* Pods-OpenIDConnectExample-acknowledgements.markdown */,
+				74A1EFB7CB323641B993265340B51DC1 /* Pods-OpenIDConnectExample-acknowledgements.plist */,
+				47EF5B01E5D340AAA7E54F66FF8FCA5E /* Pods-OpenIDConnectExample-dummy.m */,
+				B21FD331EB8B5EFA865F506EC8E36F83 /* Pods-OpenIDConnectExample-frameworks.sh */,
+				1A5D27654CF316FF0A1628C0A64BC1F9 /* Pods-OpenIDConnectExample-resources.sh */,
+				276DB7441A9FD7DB5DD72031522AA695 /* Pods-OpenIDConnectExample-umbrella.h */,
+				AE7B98900BAB303C661A00551391F391 /* Pods-OpenIDConnectExample.debug.xcconfig */,
+				1D8542B56BE6B314C304FB01EDF454D1 /* Pods-OpenIDConnectExample.release.xcconfig */,
+			);
+			name = "Pods-OpenIDConnectExample";
+			path = "Target Support Files/Pods-OpenIDConnectExample";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				4366FF80F8FFC25A7602AEA65AD6E333 /* Frameworks */,
+				0BDC0CD55E73FED9D1181668485EBE03 /* Pods */,
+				27479091810486B50A3E6767036497FD /* Products */,
+				CDF75598D319D757E967804D60B7C5FC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9B16233018C089391013DCF25DB290FC /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				03480E0128A36AB1FB242D671AA01242 /* MF_Base64Additions.h */,
+				ECC58DC9823DD0F7C646C8B0A34D4E11 /* MF_Base64Additions.m */,
+				9E7817D0E7D6554D8AF50583C8A806E5 /* Support Files */,
+			);
+			name = Base64;
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		9E7817D0E7D6554D8AF50583C8A806E5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				397C552F354D06DB132F1FF03956C0DA /* Base64.modulemap */,
+				ADB7964084A2AFEBE9BAB638EFEF3A99 /* Base64.xcconfig */,
+				AD02F491635938B04027C441EB085D38 /* Base64-dummy.m */,
+				00B1D0498012769B12CC861B750DBB48 /* Base64-prefix.pch */,
+				BC299BF11E46E05F8985B22B015E4D97 /* Base64-umbrella.h */,
+				DD62A5163BE3EB3D62E67350730AFE19 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Base64";
+			sourceTree = "<group>";
+		};
+		AA1B06E8A8C01B6A90CC2B50CEA6CDBD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				652D61863C7DEF41F942D03B5B395E67 /* Info.plist */,
+				43D72A7D9C02638C6FFF31E518D95382 /* JWT.modulemap */,
+				26A16310BB3D496DA0C0CB7181048ACD /* JWT.xcconfig */,
+				B6809904D2E56ACA941DBD59219AF489 /* JWT-dummy.m */,
+				D10BBE8BA3DDE1E104CB2E65DB8DDD7E /* JWT-prefix.pch */,
+				A298C73FE84DF55740F820488F09FB8B /* JWT-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JWT";
+			sourceTree = "<group>";
+		};
+		B16F3B25AA39AE91501BFF39397A737B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B39C3CEC3E30E4F6E6D66DAB76CED60 /* AppAuth.modulemap */,
+				67E69B4EAC3392895A4D2C4C9FCAB2BA /* AppAuth.xcconfig */,
+				9D0CA772F76FABD7166C93006F2E76C4 /* AppAuth-dummy.m */,
+				136A277033E4F62514C81BECB7BD2BB5 /* AppAuth-prefix.pch */,
+				9289B78171C74FF6E4FFF31DE3DE3417 /* AppAuth-umbrella.h */,
+				D3DE5755AEBB153ABA0A1B398C37D153 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AppAuth";
+			sourceTree = "<group>";
+		};
+		CDF75598D319D757E967804D60B7C5FC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B68358CBA8735BB703AED410472015F /* Pods-OpenIDConnectExample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F6B9BAC1EEE1E9BF2D6E61681F0F8969 /* AppAuth */ = {
+			isa = PBXGroup;
+			children = (
+				7A50C85E25542D641D84B03FFC8F70BB /* AppAuth.h */,
+				86B896685A9CABDF44A9A730B7E6DECB /* OIDAuthorizationRequest.h */,
+				839530416E5585A87DD9507323F1C3F3 /* OIDAuthorizationRequest.m */,
+				AFF607986279BDAC7D8A22F37E8E1D77 /* OIDAuthorizationResponse.h */,
+				C69E0E193C25693210A80C1F330C8628 /* OIDAuthorizationResponse.m */,
+				81BBAA8FFF66583229DD5B0D3168FA44 /* OIDAuthorizationService.h */,
+				63FBCC875BF764F09C614371963430AE /* OIDAuthorizationService.m */,
+				8B98D7E8E5F4961738CEBB2E85FCC0A1 /* OIDAuthorizationService+IOS.h */,
+				65AB82629F767718C866743E0D2ACEAE /* OIDAuthorizationService+IOS.m */,
+				72AF27B23CEA622BCFD2F76678921960 /* OIDAuthorizationUICoordinator.h */,
+				EB58B169BC8B97C98C0723F242E01B7D /* OIDAuthorizationUICoordinatorIOS.h */,
+				52118485057109BBA72980BEDAD0207D /* OIDAuthorizationUICoordinatorIOS.m */,
+				1CE58A9D3FEEB0648F13B7B6456BA03B /* OIDAuthState.h */,
+				832D29850A9D61434618DC35020E28C2 /* OIDAuthState.m */,
+				CD542EBE52D3DE5AE1494DCCE54E44CD /* OIDAuthState+IOS.h */,
+				DB480ECB801AA80B5BAD6627169F3497 /* OIDAuthState+IOS.m */,
+				9979016405832564B6851F07AB6F6605 /* OIDAuthStateChangeDelegate.h */,
+				4DEBD516AFCFCB06D9B3A01967A5CA00 /* OIDAuthStateErrorDelegate.h */,
+				BAABA3709CFF71F1CC07CF65738BC9D1 /* OIDDefines.h */,
+				748483FEA8D5382CBC9F94491AA15252 /* OIDError.h */,
+				D2C0BFC6C5A0AEB5F40DDB898E9741FC /* OIDError.m */,
+				485823393A6980F7DA672B1C3C28130D /* OIDErrorUtilities.h */,
+				9C24689670A58FAA68DE575CFF72D2D2 /* OIDErrorUtilities.m */,
+				D9B8D01810E8116B4FB6EAEA52CDCCDD /* OIDFieldMapping.h */,
+				FB7019C3C47D3DF8CB7F1E4447DFF3A3 /* OIDFieldMapping.m */,
+				C180A3DA9D5CF5E50C5859C57AC0B1C0 /* OIDGrantTypes.h */,
+				09D41C185FA261F752AC085E431284A5 /* OIDGrantTypes.m */,
+				120534869D4182393D3CEDB942E81FC8 /* OIDResponseTypes.h */,
+				93B11C1D85658BAA6E44984381F5906A /* OIDResponseTypes.m */,
+				F5068901B021E1EEA35930DDA04199B2 /* OIDScopes.h */,
+				104D1BA88E840CD2F14686BECCA637A4 /* OIDScopes.m */,
+				7DF704C3DD1EBF46D21B95C98EBB24E3 /* OIDScopeUtilities.h */,
+				A8996284E1CCE9E2AA929592D2506FCF /* OIDScopeUtilities.m */,
+				C3EDA2959F67E4FC4651CC9C36AC7535 /* OIDServiceConfiguration.h */,
+				73A52F37B93C7C2C7440D5F7B1B6B941 /* OIDServiceConfiguration.m */,
+				F8481614221563E64B9E45A31AAFF2AE /* OIDServiceDiscovery.h */,
+				9B6DD5D1D22767E7AA8E8E47773DC05D /* OIDServiceDiscovery.m */,
+				50E40780C2886536DE3A00C9EE34B45C /* OIDTokenRequest.h */,
+				0A44FC18A88B5453331D6E6516DB1434 /* OIDTokenRequest.m */,
+				91C3611F3429AE0B3CFF314CFE1EF37B /* OIDTokenResponse.h */,
+				6DFF738CFB93E85DABD590BDA7459F51 /* OIDTokenResponse.m */,
+				D2DDD886AE8A1B0E1E65F4B34853DC6E /* OIDTokenUtilities.h */,
+				1E99405A1BC5201081210A1EB76126ED /* OIDTokenUtilities.m */,
+				A9F6A93375BBC73659CE2D64CBAEF185 /* OIDURLQueryComponent.h */,
+				85E58B49FF20DB07B1D4947C735CF60A /* OIDURLQueryComponent.m */,
+				B16F3B25AA39AE91501BFF39397A737B /* Support Files */,
+			);
+			name = AppAuth;
+			path = AppAuth;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		200E381E8F90B41C37EF99F030E1F5B2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23C2DD938E8BA80523A392AB35D3F391 /* Pods-OpenIDConnectExample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C672AC1F0B065F5E0929861D99E1D32 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EFD8876859AE883639E2F382339C3D7 /* Base64-umbrella.h in Headers */,
+				1679F359921879B12FFD70CB6ABD8DFC /* MF_Base64Additions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D33C4F16A11114DF7E809876923CB21B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C528BF1AA5F073565C21C248BD8FA8BA /* JWT-umbrella.h in Headers */,
+				4A5DACB438FE43169FDF1C3B774D3925 /* JWT.h in Headers */,
+				182E97636A153EE5C351349A1DFF724B /* JWTAlgorithm.h in Headers */,
+				A6DE8DD5DA58E4DE8F6CD76DBCB4F900 /* JWTAlgorithmDataHolder.h in Headers */,
+				EFBE735EE3164438ACAA1B4C9F615B8F /* JWTAlgorithmDataHolderChain.h in Headers */,
+				12B480FC5458C8916933BDBDCA0056F7 /* JWTAlgorithmFactory.h in Headers */,
+				56D4179F4D474E2CB5CC0358F8F84F43 /* JWTAlgorithmHS256.h in Headers */,
+				695D2766862AE19CF6AF68FD81808036 /* JWTAlgorithmHS384.h in Headers */,
+				25EEC3F3BBA664B76B0883EE71F2016D /* JWTAlgorithmHS512.h in Headers */,
+				5175A241A7D7F6C8431DB7FF9C1FC66D /* JWTAlgorithmHSBase.h in Headers */,
+				B25B4A1401DB5B846500543931B86B84 /* JWTAlgorithmNone.h in Headers */,
+				2358A89173DEDD74555DE33E10C30440 /* JWTAlgorithmRSBase.h in Headers */,
+				43DEADBD31BE9740CDC1FF6E84139FB9 /* JWTBase64Coder.h in Headers */,
+				EF74546FDB9F7D22BEE79AE82AD31703 /* JWTClaim.h in Headers */,
+				2A554F281CB97F7CE80CC184349DEC6A /* JWTClaimsSet.h in Headers */,
+				636ED5C38BF735D374889738163BEAF8 /* JWTClaimsSetSerializer.h in Headers */,
+				8FE7ABB19C17FB8D56FBF7BAB3E13885 /* JWTClaimsSetVerifier.h in Headers */,
+				03564429EFA015EB0CB10F809BB91AFE /* JWTCoding.h in Headers */,
+				14BFAAE3DA5473148C8513CE8B4E6001 /* JWTDeprecations.h in Headers */,
+				E37CA3AE0DB54F2281AAB12CC0B3ADB9 /* JWTRSAlgorithm.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC04571BAB847A89D51C4D94615A2A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F84E02BC0092D6F89AE53914666769E1 /* AppAuth-umbrella.h in Headers */,
+				8C1D6E61F8BC5C4DF16764609C831D39 /* AppAuth.h in Headers */,
+				1AD85EA85FBBF6FAEB77DD550510C129 /* OIDAuthorizationRequest.h in Headers */,
+				1DBDE74E7234F7F13CB7B03DBDB6943C /* OIDAuthorizationResponse.h in Headers */,
+				1E18489D34047F312C152B31425F582F /* OIDAuthorizationService+IOS.h in Headers */,
+				0897A26B3804CF0309918D2AF586634C /* OIDAuthorizationService.h in Headers */,
+				C66DF94893571FFFC3D18360A57029F0 /* OIDAuthorizationUICoordinator.h in Headers */,
+				855F3C5D3D9DD7B1DC76C2F23BB15C7F /* OIDAuthorizationUICoordinatorIOS.h in Headers */,
+				988551E340F39E9DDF2F0D0A37697025 /* OIDAuthState+IOS.h in Headers */,
+				C1EDD4B78D81BD3E32E4F75AD3731C80 /* OIDAuthState.h in Headers */,
+				D85F0BB3FF73D05B3FAA19CBFF350F05 /* OIDAuthStateChangeDelegate.h in Headers */,
+				8DF27A4C9B970CD0A1383C04516DBF3C /* OIDAuthStateErrorDelegate.h in Headers */,
+				426B9B1010FD474F3413B7B2AD4A0709 /* OIDDefines.h in Headers */,
+				3EC50952B6EF2E750AE2D40DD9CED6B4 /* OIDError.h in Headers */,
+				CCFB094368B5345A86D7D44850313D2C /* OIDErrorUtilities.h in Headers */,
+				3123B6E28D40FD4096EE2C5198B7D5E6 /* OIDFieldMapping.h in Headers */,
+				8A49B374D458711BCFAFC14CBEF468B9 /* OIDGrantTypes.h in Headers */,
+				3C05DF646F6067AE76ED2B2707392109 /* OIDResponseTypes.h in Headers */,
+				A5D95128D92A21426818F15534A55F87 /* OIDScopes.h in Headers */,
+				13A8FA59BBD37888DAF84309AF8E38E9 /* OIDScopeUtilities.h in Headers */,
+				CC01F710ADECFF21C80CD635CCAC0D4B /* OIDServiceConfiguration.h in Headers */,
+				04FE4B8DF889CDC972F9DDB10B4309F2 /* OIDServiceDiscovery.h in Headers */,
+				DC25CE95F2F1A02BC9FAF78590C15E72 /* OIDTokenRequest.h in Headers */,
+				8DAE14D02A9CDCA2A37FB8663616D52E /* OIDTokenResponse.h in Headers */,
+				0D1B02523FAD4FEA08532986C2CC4D9E /* OIDTokenUtilities.h in Headers */,
+				550A0254DC3B4C648FB1A9D8121CB728 /* OIDURLQueryComponent.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		13F3ECEDD8FACC405786411AC2E31ABC /* JWT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ABD1D0958FCCB967A5014FBE214D265 /* Build configuration list for PBXNativeTarget "JWT" */;
+			buildPhases = (
+				A864D8C259B4DD64BD19856683BFA9AA /* Sources */,
+				2833F8A86133613517D6C19583AD637D /* Frameworks */,
+				D33C4F16A11114DF7E809876923CB21B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEBE41005F678F6259A85D81918063C7 /* PBXTargetDependency */,
+			);
+			name = JWT;
+			productName = JWT;
+			productReference = 91CB1840A25ADFA344470252FF95D51B /* JWT.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53F6FDC13F620DEF25DC511D8B05C851 /* AppAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24BAC270C6F051FBBFDE777EEB9D98E5 /* Build configuration list for PBXNativeTarget "AppAuth" */;
+			buildPhases = (
+				0E354362417BA7377CC75A9D8CCC1E1A /* Sources */,
+				A5B184DEAE747D9FC762B59357862417 /* Frameworks */,
+				FCC04571BAB847A89D51C4D94615A2A1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppAuth;
+			productName = AppAuth;
+			productReference = F525A3B25EC4F2C6FBFDC5017E6F1231 /* AppAuth.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		67A9F9106B32ACF952B66B2EE009513F /* Base64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3CF454BE6A2913D72AC5E28E287E799 /* Build configuration list for PBXNativeTarget "Base64" */;
+			buildPhases = (
+				8221AE19AE4FD491952F8ED4AD8D9B75 /* Sources */,
+				D5EAB9DB133E367A671B56BFCD781A85 /* Frameworks */,
+				9C672AC1F0B065F5E0929861D99E1D32 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Base64;
+			productName = Base64;
+			productReference = D1563785796B8AAE0DD6547A7D7C24C5 /* Base64.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8AAA064623557C32F81A83B5DF074711 /* Pods-OpenIDConnectExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E3FE71CE48C3208DC56EC539AFBB0DE /* Build configuration list for PBXNativeTarget "Pods-OpenIDConnectExample" */;
+			buildPhases = (
+				4FA6CAA9F0D43CA699907CBD84B8BB5C /* Sources */,
+				761A127E27FDF32DB33C4DD5D28A6ACA /* Frameworks */,
+				200E381E8F90B41C37EF99F030E1F5B2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2521799E2266574B5B022B1148EA80E2 /* PBXTargetDependency */,
+				7B6E4F38E5F6FA9F47A8421F12C76081 /* PBXTargetDependency */,
+				086A2FF08C91B915475D5F2E71D11756 /* PBXTargetDependency */,
+			);
+			name = "Pods-OpenIDConnectExample";
+			productName = "Pods-OpenIDConnectExample";
+			productReference = D4765DD87EFC02775ADCF0BC1FE9574B /* Pods_OpenIDConnectExample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 27479091810486B50A3E6767036497FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53F6FDC13F620DEF25DC511D8B05C851 /* AppAuth */,
+				67A9F9106B32ACF952B66B2EE009513F /* Base64 */,
+				13F3ECEDD8FACC405786411AC2E31ABC /* JWT */,
+				8AAA064623557C32F81A83B5DF074711 /* Pods-OpenIDConnectExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E354362417BA7377CC75A9D8CCC1E1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99ACC18209AA4BB24C1B10EAD5E2550A /* AppAuth-dummy.m in Sources */,
+				EDBCD80D84DC5FF98025E0CD753504C4 /* OIDAuthorizationRequest.m in Sources */,
+				94F68C78A35AF10317F1658C046270D5 /* OIDAuthorizationResponse.m in Sources */,
+				EE046C0808FC5B7F5D7CBE1A46375BFB /* OIDAuthorizationService+IOS.m in Sources */,
+				A6B488A53EC42A6DA62D62E2A0BE2AF0 /* OIDAuthorizationService.m in Sources */,
+				D548F3287FB3D00526AE6CD75B79059E /* OIDAuthorizationUICoordinatorIOS.m in Sources */,
+				4E25157574C117113EFD879638A7F0B1 /* OIDAuthState+IOS.m in Sources */,
+				E3B731205873601B8B5B864A85907E71 /* OIDAuthState.m in Sources */,
+				09DCA7F95FD5C9FBACB81110D6E2C675 /* OIDError.m in Sources */,
+				4B9CEB4E1A74DB3E9DC1ABC8484172F8 /* OIDErrorUtilities.m in Sources */,
+				528FB38C4E57767CDAE835A902AF2980 /* OIDFieldMapping.m in Sources */,
+				7D048F3ED910989DFBCFA52047B85D53 /* OIDGrantTypes.m in Sources */,
+				599794BE57B1B92ADB8EA5EE6A34A2E9 /* OIDResponseTypes.m in Sources */,
+				B0605288099CBBBE07F2211A67E8F62B /* OIDScopes.m in Sources */,
+				44F74012D83DA05262DA5FA01D12CB78 /* OIDScopeUtilities.m in Sources */,
+				6EF7F96DE8C9A6EB366BE96B2DBC40D5 /* OIDServiceConfiguration.m in Sources */,
+				E092DC8E64714C068AD71638E4D0B992 /* OIDServiceDiscovery.m in Sources */,
+				72515B7E798476F0BAC30E326BE1E3AC /* OIDTokenRequest.m in Sources */,
+				C2BBAEB73154D11D8D54E844623664F9 /* OIDTokenResponse.m in Sources */,
+				173BFC9EA5721091A62C7D7F87E0632F /* OIDTokenUtilities.m in Sources */,
+				6B52DA45ABBD6CA970B756FDFE1DECDC /* OIDURLQueryComponent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FA6CAA9F0D43CA699907CBD84B8BB5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAE957E9019F2C80602E48F4293A9205 /* Pods-OpenIDConnectExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8221AE19AE4FD491952F8ED4AD8D9B75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD2358E8CC397AADAEF32EAAF6720F3 /* Base64-dummy.m in Sources */,
+				64BE5C76E0FEC38118DDCC568D5DE5B1 /* MF_Base64Additions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A864D8C259B4DD64BD19856683BFA9AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00F252CE31D623BF81E7D0485648EC9 /* JWT-dummy.m in Sources */,
+				36459EFBCA63AD9E5DE342785F614B18 /* JWTAlgorithmDataHolder.m in Sources */,
+				67FA8775EC6FC5149AF464DBB8FA2D37 /* JWTAlgorithmDataHolderChain.m in Sources */,
+				E2E6FC383EB17D9F0B2E3512876C5F5C /* JWTAlgorithmFactory.m in Sources */,
+				7C981AA277086811C5DA8CAED22FC0B2 /* JWTAlgorithmHS256.m in Sources */,
+				A1EA9313BD2919EAD136A6117F5FEA01 /* JWTAlgorithmHS384.m in Sources */,
+				85F05215443DFB3B9D3B9E0DBC59D4AC /* JWTAlgorithmHS512.m in Sources */,
+				D5F0B57D3580342AE857E1D354D6F7BC /* JWTAlgorithmHSBase.m in Sources */,
+				4F88E1FFC02D53264AAD469A1DFD5A43 /* JWTAlgorithmNone.m in Sources */,
+				F8866D91C0AF370D124B599DA343B535 /* JWTAlgorithmRSBase.m in Sources */,
+				1417BD614D6C59E9C5D7F3AE4809A648 /* JWTBase64Coder.m in Sources */,
+				C35F95F4814914CAF49F7BB772062779 /* JWTClaim.m in Sources */,
+				B295974AF4D895F2EE645F0E3AE2C3D3 /* JWTClaimsSet.m in Sources */,
+				82D6AE3F1D04112EBAB647A8CB4D0347 /* JWTClaimsSetSerializer.m in Sources */,
+				1C1B2A9A9CB8966A8BD93181840620A9 /* JWTClaimsSetVerifier.m in Sources */,
+				21DF779A0FADD5267C1B79BFD649D0CF /* JWTCoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		086A2FF08C91B915475D5F2E71D11756 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JWT;
+			target = 13F3ECEDD8FACC405786411AC2E31ABC /* JWT */;
+			targetProxy = C3F3B5FCE364C6B14467E320B22FEF3E /* PBXContainerItemProxy */;
+		};
+		2521799E2266574B5B022B1148EA80E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppAuth;
+			target = 53F6FDC13F620DEF25DC511D8B05C851 /* AppAuth */;
+			targetProxy = A93F82515BFC285C7E987C64B6EAFD88 /* PBXContainerItemProxy */;
+		};
+		7B6E4F38E5F6FA9F47A8421F12C76081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Base64;
+			target = 67A9F9106B32ACF952B66B2EE009513F /* Base64 */;
+			targetProxy = 637622213AAF8E50D569CCEE3D0ED7B6 /* PBXContainerItemProxy */;
+		};
+		FEBE41005F678F6259A85D81918063C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Base64;
+			target = 67A9F9106B32ACF952B66B2EE009513F /* Base64 */;
+			targetProxy = 46EB161CAFC3F0FEA41E02F386747DBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1E3DC451061DBF67DBF59138D888E1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E69B4EAC3392895A4D2C4C9FCAB2BA /* AppAuth.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AppAuth/AppAuth-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AppAuth/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AppAuth/AppAuth.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AppAuth;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92279B43CCD3B99E6DA25D9D5A0C3162 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A16310BB3D496DA0C0CB7181048ACD /* JWT.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = JWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0C73359EC2B93BD87E380DC0D9287E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADB7964084A2AFEBE9BAB638EFEF3A99 /* Base64.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Base64/Base64-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base64/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Base64/Base64.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Base64;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B229AFB7D2FC66183E75AFCBB0E7A3AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE7B98900BAB303C661A00551391F391 /* Pods-OpenIDConnectExample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OpenIDConnectExample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OpenIDConnectExample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B7EBCF24EB383E7F92B0C2FC1A73C83D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E69B4EAC3392895A4D2C4C9FCAB2BA /* AppAuth.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AppAuth/AppAuth-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AppAuth/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AppAuth/AppAuth.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AppAuth;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFD0F58395E26A633CAD840E1EC99FEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8542B56BE6B314C304FB01EDF454D1 /* Pods-OpenIDConnectExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OpenIDConnectExample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OpenIDConnectExample/Pods-OpenIDConnectExample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OpenIDConnectExample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CF4CA016AE1B71D7F2CD3F43AFEEFED2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADB7964084A2AFEBE9BAB638EFEF3A99 /* Base64.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Base64/Base64-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base64/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Base64/Base64.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Base64;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F19738EAB26B4889E09ED6AE81A7251F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A16310BB3D496DA0C0CB7181048ACD /* JWT.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = JWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E3FE71CE48C3208DC56EC539AFBB0DE /* Build configuration list for PBXNativeTarget "Pods-OpenIDConnectExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B229AFB7D2FC66183E75AFCBB0E7A3AA /* Debug */,
+				BFD0F58395E26A633CAD840E1EC99FEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24BAC270C6F051FBBFDE777EEB9D98E5 /* Build configuration list for PBXNativeTarget "AppAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7EBCF24EB383E7F92B0C2FC1A73C83D /* Debug */,
+				1E3DC451061DBF67DBF59138D888E1F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
+				E72E7977875C2D251FC62736BBDDC389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7ABD1D0958FCCB967A5014FBE214D265 /* Build configuration list for PBXNativeTarget "JWT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19738EAB26B4889E09ED6AE81A7251F /* Debug */,
+				92279B43CCD3B99E6DA25D9D5A0C3162 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3CF454BE6A2913D72AC5E28E287E799 /* Build configuration list for PBXNativeTarget "Base64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C73359EC2B93BD87E380DC0D9287E3 /* Debug */,
+				CF4CA016AE1B71D7F2CD3F43AFEEFED2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
