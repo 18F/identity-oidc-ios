@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     @IBAction func didSelectLoginGov(_ sender: Any) {
         self.clearError()
         self.startSpinning()
-        
+
         let delegate = UIApplication.shared.delegate! as! AppDelegate
 
         let authRequest = LoginGovService.authorizationRequest()
@@ -30,14 +30,14 @@ class LoginViewController: UIViewController {
                 self.showError(error: error!)
                 return
             }
-                
+
             let tokenRequest = LoginGovService.tokenRequest(authorizationCode: authorizationCode)
             OIDAuthorizationService.perform(tokenRequest, callback: { (tokenResponse : OIDTokenResponse?, error : Error?) in
                 guard let accessToken = tokenResponse?.accessToken else {
                     self.showError(error: error!)
                     return
                 }
-                
+
                 LoginGovService.loadUserinfo(accessToken: accessToken, callback: { (json : Any?, error : Error?) in
                     if let json = json {
                         self.showProfile(json: json)
