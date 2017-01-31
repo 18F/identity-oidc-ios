@@ -1,11 +1,3 @@
-//
-//  OpenIDConnectExampleUITests.swift
-//  OpenIDConnectExampleUITests
-//
-//  Created by Zachary Margolis on 1/30/17.
-//  Copyright © 2017 GSA. All rights reserved.
-//
-
 import XCTest
 
 class OpenIDConnectExampleUITests: XCTestCase {

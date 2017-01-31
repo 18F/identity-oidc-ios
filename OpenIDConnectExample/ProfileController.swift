@@ -1,11 +1,3 @@
-//
-//  ProfileController.swift
-//  OpenIDConnectExample
-//
-//  Created by Zachary Margolis on 1/31/17.
-//  Copyright © 2017 GSA. All rights reserved.
-//
-
 import UIKit
 
 class ProfileController : UIViewController {
