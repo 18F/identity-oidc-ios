@@ -57,20 +57,14 @@ class LoginGovService {
             "exp": Date.init().addingTimeInterval(1000).timeIntervalSince1970
         ]
 
-        // TODO: do NOT bundle private key into app
-        let keyURL = Bundle.main.url(forResource: "saml_test_sp", withExtension: "p12")
-        var data : Data
-        do {
-            try data = Data.init(contentsOf: keyURL!)
-        } catch {
-            return "";
-        }
+        // TODO: do NOT hardcode client secret into app
+        let clientSecret = "61ba81524248cba6e4ba0e9038547d84"
 
         return JWT.encodePayload(payload)!
-                  .secretData(data)!
-                  .algorithmName(JWTAlgorithmNameRS256)!
-                  .privateKeyCertificatePassphrase("")!
+                  .secret(clientSecret)!
+                  .algorithmName(JWTAlgorithmNameHS256)!
                   .encode
+
     }
 
     static func loadUserinfo(accessToken : String, callback : @escaping (Any?, Error?) -> Void) {
