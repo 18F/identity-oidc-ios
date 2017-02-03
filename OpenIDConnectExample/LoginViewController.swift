@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         let delegate = UIApplication.shared.delegate! as! AppDelegate
 
         let authRequest = LoginGovService.authorizationRequest()
+
         delegate.currentAuthorizationSession = OIDAuthorizationService
             .present(authRequest, presenting: self, callback: { (authReponse: OIDAuthorizationResponse?, error: Error?) in
 
@@ -31,7 +32,10 @@ class LoginViewController: UIViewController {
                 return
             }
 
-            let tokenRequest = LoginGovService.tokenRequest(authorizationCode: authorizationCode)
+            let tokenRequest = LoginGovService.tokenRequest(
+                authorizationCode: authorizationCode,
+                codeVerifier: authRequest.codeVerifier!
+            )
             OIDAuthorizationService.perform(tokenRequest, callback: { (tokenResponse : OIDTokenResponse?, error : Error?) in
                 guard let accessToken = tokenResponse?.accessToken else {
                     self.showError(error: error!)
