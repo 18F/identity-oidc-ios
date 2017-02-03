@@ -59,7 +59,9 @@ class LoginGovService {
                     error = err
                 }
             }
-            callback(json, error)
+            DispatchQueue.main.async {
+                callback(json, error)
+            }
         }
         dataTask.resume()
     }

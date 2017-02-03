@@ -6,7 +6,7 @@ class ProfileController : UIViewController {
     @IBOutlet weak var textView: UITextView!
 
     @IBAction func signOut(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

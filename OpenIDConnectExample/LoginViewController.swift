@@ -56,12 +56,10 @@ class LoginViewController: UIViewController {
     private func showProfile(json : Any) {
         self.stopSpinning()
 
-        let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileNavigation") as! UINavigationController
-
-        let profileController = navigationController.viewControllers.first as! ProfileController
+        let profileController = self.storyboard?.instantiateViewController(withIdentifier: "Profile") as! ProfileController
         profileController.updateProfile(json: json)
 
-        self.present(navigationController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(profileController, animated: true)
     }
 
     private func showError(error : Error) {
