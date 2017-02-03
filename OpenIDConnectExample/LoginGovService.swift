@@ -23,18 +23,14 @@ class LoginGovService {
         return OIDAuthorizationRequest.init(
             configuration: serviceConfiguration(),
             clientId: clientId,
+            clientSecret: nil,
             scopes: scopes,
             redirectURL: redirectURL,
             responseType: "code",
             additionalParameters: additionalAuthParameters)
     }
 
-    static func tokenRequest(authorizationCode : String) -> OIDTokenRequest {
-        let additionalTokenParameters = [
-            "client_assertion": tokenRequestJWT(),
-            "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
-        ]
-
+    static func tokenRequest(authorizationCode : String, codeVerifier : String) -> OIDTokenRequest {
         return OIDTokenRequest.init(
             configuration: serviceConfiguration(),
             grantType: "authorization_code",
@@ -44,33 +40,8 @@ class LoginGovService {
             clientSecret: nil,
             scope: nil,
             refreshToken: nil,
-            codeVerifier: nil,
-            additionalParameters: additionalTokenParameters)!
-    }
-
-    private static func tokenRequestJWT() -> String {
-        let payload : [String : Any] = [
-            "iss": clientId,
-            "sub": clientId,
-            "aud": serviceConfiguration().tokenEndpoint.absoluteString,
-            "jti": UUID.init().uuidString,
-            "exp": Date.init().addingTimeInterval(1000).timeIntervalSince1970
-        ]
-
-        // TODO: do NOT bundle private key into app
-        let keyURL = Bundle.main.url(forResource: "saml_test_sp", withExtension: "p12")
-        var data : Data
-        do {
-            try data = Data.init(contentsOf: keyURL!)
-        } catch {
-            return "";
-        }
-
-        return JWT.encodePayload(payload)!
-                  .secretData(data)!
-                  .algorithmName(JWTAlgorithmNameRS256)!
-                  .privateKeyCertificatePassphrase("")!
-                  .encode
+            codeVerifier: codeVerifier,
+            additionalParameters: nil)!
     }
 
     static func loadUserinfo(accessToken : String, callback : @escaping (Any?, Error?) -> Void) {
