@@ -22,35 +22,43 @@ class LoginViewController: UIViewController {
 
         let delegate = UIApplication.shared.delegate! as! AppDelegate
 
-        let authRequest = LoginGovService.authorizationRequest()
-
-        delegate.currentAuthorizationSession = OIDAuthorizationService
-            .present(authRequest, presenting: self, callback: { (authReponse: OIDAuthorizationResponse?, error: Error?) in
-
-            guard let authorizationCode = authReponse?.authorizationCode else {
+        LoginGovService.discoverConfiguration() { (serviceConfiguration : OIDServiceConfiguration?, error: Error?) in
+            guard let serviceConfiguration = serviceConfiguration else {
                 self.showError(error: error!)
                 return
             }
 
-            let tokenRequest = LoginGovService.tokenRequest(
-                authorizationCode: authorizationCode,
-                codeVerifier: authRequest.codeVerifier!
-            )
-            OIDAuthorizationService.perform(tokenRequest, callback: { (tokenResponse : OIDTokenResponse?, error : Error?) in
-                guard let accessToken = tokenResponse?.accessToken else {
-                    self.showError(error: error!)
-                    return
-                }
+            let authRequest = LoginGovService.authorizationRequest(serviceConfiguration: serviceConfiguration)
 
-                LoginGovService.loadUserinfo(accessToken: accessToken, callback: { (json : Any?, error : Error?) in
-                    if let json = json {
-                        self.showProfile(json: json)
-                    } else if let error = error {
-                        self.showError(error: error)
+            delegate.currentAuthorizationSession = OIDAuthorizationService
+                .present(authRequest, presenting: self) { (authReponse: OIDAuthorizationResponse?, error: Error?) in
+
+                    guard let authorizationCode = authReponse?.authorizationCode else {
+                        self.showError(error: error!)
+                        return
                     }
-                })
-            })
-        })
+
+                    let tokenRequest = LoginGovService.tokenRequest(
+                        serviceConfiguration: serviceConfiguration,
+                        authorizationCode: authorizationCode,
+                        codeVerifier: authRequest.codeVerifier!
+                    )
+                    OIDAuthorizationService.perform(tokenRequest) { (tokenResponse : OIDTokenResponse?, error : Error?) in
+                        guard let accessToken = tokenResponse?.accessToken else {
+                            self.showError(error: error!)
+                            return
+                        }
+
+                        LoginGovService.loadUserinfo(serviceConfiguration: serviceConfiguration, accessToken: accessToken, callback: { (json : Any?, error : Error?) in
+                            if let json = json {
+                                self.showProfile(json: json)
+                            } else if let error = error {
+                                self.showError(error: error)
+                            }
+                        })
+                    }
+                }
+        }
     }
 
     private func showProfile(json : Any) {

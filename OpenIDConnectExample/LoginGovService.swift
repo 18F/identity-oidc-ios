@@ -12,16 +12,13 @@ class LoginGovService {
         "acr_values" : "http://idmanagement.gov/ns/assurance/loa/3"
     ]
 
-    static func serviceConfiguration() -> OIDServiceConfiguration {
-        let authorizationURL = baseURL.appendingPathComponent("/openid_connect/authorize")
-        let tokenURL = baseURL.appendingPathComponent("/openid_connect/token")
-
-        return OIDServiceConfiguration.init(authorizationEndpoint: authorizationURL, tokenEndpoint: tokenURL)
+    static func discoverConfiguration(callback : @escaping OIDDiscoveryCallback) {
+        OIDAuthorizationService.discoverConfiguration(forIssuer: baseURL, completion: callback)
     }
 
-    static func authorizationRequest() -> OIDAuthorizationRequest {
+    static func authorizationRequest(serviceConfiguration: OIDServiceConfiguration) -> OIDAuthorizationRequest {
         return OIDAuthorizationRequest.init(
-            configuration: serviceConfiguration(),
+            configuration: serviceConfiguration,
             clientId: clientId,
             clientSecret: nil,
             scopes: scopes,
@@ -30,9 +27,9 @@ class LoginGovService {
             additionalParameters: additionalAuthParameters)
     }
 
-    static func tokenRequest(authorizationCode : String, codeVerifier : String) -> OIDTokenRequest {
+    static func tokenRequest(serviceConfiguration: OIDServiceConfiguration, authorizationCode : String, codeVerifier : String) -> OIDTokenRequest {
         return OIDTokenRequest.init(
-            configuration: serviceConfiguration(),
+            configuration: serviceConfiguration,
             grantType: "authorization_code",
             authorizationCode: authorizationCode,
             redirectURL: redirectURL,
@@ -44,8 +41,8 @@ class LoginGovService {
             additionalParameters: nil)!
     }
 
-    static func loadUserinfo(accessToken : String, callback : @escaping (Any?, Error?) -> Void) {
-        var urlRequest = URLRequest.init(url: baseURL.appendingPathComponent("/openid_connect/userinfo"))
+    static func loadUserinfo(serviceConfiguration: OIDServiceConfiguration, accessToken : String, callback : @escaping (Any?, Error?) -> Void) {
+        var urlRequest = URLRequest.init(url: serviceConfiguration.discoveryDocument!.userinfoEndpoint!)
         urlRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
 
         let urlSession = URLSession.init(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
