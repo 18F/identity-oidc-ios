@@ -7,10 +7,6 @@ class LoginGovService {
     static let clientId = "urn:gov:gsa:openidconnect:development"
     static let scopes = ["profile", "openid"]
     static let redirectURL = URL(string: "gov.gsa.openidconnect.development://result")!
-    static let additionalAuthParameters = [
-        "prompt" : "select_account",
-        "acr_values" : "http://idmanagement.gov/ns/assurance/loa/3"
-    ]
 
     static func discoverConfiguration(callback : @escaping OIDDiscoveryCallback) {
         OIDAuthorizationService.discoverConfiguration(forIssuer: baseURL, completion: callback)
@@ -24,7 +20,7 @@ class LoginGovService {
             scopes: scopes,
             redirectURL: redirectURL,
             responseType: "code",
-            additionalParameters: additionalAuthParameters)
+            additionalParameters: additionalAuthParameters())
     }
 
     static func tokenRequest(serviceConfiguration: OIDServiceConfiguration, authorizationCode : String, codeVerifier : String) -> OIDTokenRequest {
@@ -62,4 +58,13 @@ class LoginGovService {
         }
         dataTask.resume()
     }
+
+    private static func additionalAuthParameters() -> [String : String] {
+        return [
+            "prompt" : "select_account",
+            "acr_values" : "http://idmanagement.gov/ns/assurance/loa/3",
+            "nonce" : UUID().uuidString
+        ]
+    }
+
 }
