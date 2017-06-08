@@ -23,8 +23,6 @@ pod install
 
 - **[AppAuth](https://github.com/openid/AppAuth-iOS)**: For working with OpenID Connect 1.0 APIs
 
-- **[JWT](https://github.com/yourkarma/jwt)**: For creating, signing, and decoding JWT tokens
-
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) for additional information.

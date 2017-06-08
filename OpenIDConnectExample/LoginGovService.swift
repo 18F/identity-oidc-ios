@@ -1,6 +1,5 @@
 import Foundation
 import AppAuth
-import JWT
 
 class LoginGovService {
     static let baseURL = URL(string: "http://localhost:3000")!
