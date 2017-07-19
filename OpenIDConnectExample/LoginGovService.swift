@@ -1,11 +1,65 @@
 import Foundation
 import AppAuth
+import SafariServices
 
 class LoginGovService {
     static let baseURL = URL(string: "http://localhost:3000")!
     static let clientId = "urn:gov:gsa:openidconnect:development"
     static let scopes = ["profile", "openid"]
     static let redirectURL = URL(string: "gov.gsa.openidconnect.development://result")!
+
+    class LogoutSession {
+        static let logoutPath = "/logout"
+        static let postLogoutRedirectURL = redirectURL.appendingPathComponent(logoutPath)
+
+        var serviceConfiguration : OIDServiceConfiguration
+        var idToken : String
+
+        var state : String?
+        var presentingViewController : UIViewController?
+        var callback : (() -> Void)?
+
+        init(serviceConfiguration : OIDServiceConfiguration, idToken : String) {
+            self.serviceConfiguration = serviceConfiguration
+            self.idToken = idToken
+        }
+
+        func present(presenting: UIViewController, callback : @escaping () -> Void) {
+            let state = UUID.init().uuidString
+            self.state = state
+            self.callback = callback
+            self.presentingViewController = presenting
+
+            let safariViewController = SFSafariViewController.init(url: logoutUrl(state: state))
+            presenting.navigationController!.pushViewController(safariViewController, animated: false)
+        }
+
+        func resumeLogout(with url: URL) -> Bool {
+            guard let url = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return false }
+            let state = url.queryItems?.first(where: { $0.name == "state" })?.value
+
+            if (url.string!.hasPrefix(LogoutSession.postLogoutRedirectURL.absoluteString) && self.state == state) {
+                presentingViewController?.navigationController?.popViewController(animated: false)
+                callback!();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        private func logoutUrl(state: String) -> URL {
+            let logoutURLBase = serviceConfiguration.discoveryDocument?.discoveryDictionary["end_session_endpoint"] as! String
+
+            let logoutURL = logoutURLBase.appending("?id_token_hint=")
+                .appending(idToken.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
+                .appending("&post_logout_redirect_uri=")
+                .appending(LogoutSession.postLogoutRedirectURL.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
+                .appending("&state=")
+                .appending(state.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
+
+            return URL.init(string: logoutURL)!
+        }
+    }
 
     static func discoverConfiguration(callback : @escaping OIDDiscoveryCallback) {
         OIDAuthorizationService.discoverConfiguration(forIssuer: baseURL, completion: callback)

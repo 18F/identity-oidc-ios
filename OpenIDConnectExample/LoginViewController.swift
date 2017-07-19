@@ -31,9 +31,9 @@ class LoginViewController: UIViewController {
             let authRequest = LoginGovService.authorizationRequest(serviceConfiguration: serviceConfiguration)
 
             delegate.currentAuthorizationSession = OIDAuthorizationService
-                .present(authRequest, presenting: self) { (authReponse: OIDAuthorizationResponse?, error: Error?) in
+                .present(authRequest, presenting: self) { (authResponse: OIDAuthorizationResponse?, error: Error?) in
 
-                    guard let authorizationCode = authReponse?.authorizationCode else {
+                    guard let authorizationCode = authResponse?.authorizationCode else {
                         self.showError(error: error!)
                         return
                     }
@@ -48,6 +48,8 @@ class LoginViewController: UIViewController {
                             self.showError(error: error!)
                             return
                         }
+
+                        delegate.currentLogoutSession = LoginGovService.LogoutSession(serviceConfiguration: serviceConfiguration, idToken: tokenResponse!.idToken!)
 
                         LoginGovService.loadUserinfo(serviceConfiguration: serviceConfiguration, accessToken: accessToken, callback: { (json : Any?, error : Error?) in
                             if let json = json {

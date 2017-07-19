@@ -6,7 +6,11 @@ class ProfileController : UIViewController {
     @IBOutlet weak var textView: UITextView!
 
     @IBAction func signOut(_ sender: Any) {
-        self.navigationController!.popViewController(animated: true)
+        let delegate = UIApplication.shared.delegate! as! AppDelegate
+
+        delegate.currentLogoutSession?.present(presenting: self) {
+            self.navigationController!.popViewController(animated: true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

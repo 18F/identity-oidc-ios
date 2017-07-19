@@ -6,7 +6,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var currentAuthorizationSession: OIDAuthorizationFlowSession?
-
+    var currentLogoutSession: LoginGovService.LogoutSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let currentLogoutSession = currentLogoutSession {
+            if currentLogoutSession.resumeLogout(with: url) {
+                return true;
+            }
+        }
+
         return currentAuthorizationSession!.resumeAuthorizationFlow(with: url);
     }
 
