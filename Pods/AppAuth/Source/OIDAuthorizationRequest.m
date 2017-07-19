@@ -80,9 +80,28 @@ static NSUInteger const kStateSizeBytes = 32;
  */
 static NSUInteger const kCodeVerifierBytes = 32;
 
+/*! @brief Assertion text for unsupported response types.
+ */
+static NSString *const OIDOAuthUnsupportedResponseTypeMessage =
+    @"The response_type \"%@\" isn't supported. AppAuth only supports the \"code\" response_type.";
+
+/*! @brief Code challenge request method.
+ */
 NSString *const OIDOAuthorizationRequestCodeChallengeMethodS256 = @"S256";
 
 @implementation OIDAuthorizationRequest
+
+@synthesize configuration = _configuration;
+@synthesize responseType = _responseType;
+@synthesize clientID = _clientID;
+@synthesize clientSecret = _clientSecret;
+@synthesize scope = _scope;
+@synthesize redirectURL = _redirectURL;
+@synthesize state = _state;
+@synthesize codeVerifier = _codeVerifier;
+@synthesize codeChallenge = _codeChallenge;
+@synthesize codeChallengeMethod = _codeChallengeMethod;
+@synthesize additionalParameters = _additionalParameters;
 
 - (instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(
@@ -114,6 +133,14 @@ NSString *const OIDOAuthorizationRequestCodeChallengeMethodS256 = @"S256";
     _scope = [scope copy];
     _redirectURL = [redirectURL copy];
     _responseType = [responseType copy];
+    // Attention: Please refer to https://github.com/openid/AppAuth-iOS/issues/105
+    // If you change the restriction on response type here, you must also update initWithCoder:
+    if (![_responseType isEqualToString:OIDResponseTypeCode]) {
+      // AppAuth only supports the `code` response type.
+      // Discussion: https://github.com/openid/AppAuth-iOS/issues/98
+      NSAssert(NO, OIDOAuthUnsupportedResponseTypeMessage, _responseType);
+      return nil;
+    }
     _state = [state copy];
     _codeVerifier = [codeVerifier copy];
     _codeChallenge = [codeChallenge copy];
@@ -187,7 +214,12 @@ NSString *const OIDOAuthorizationRequestCodeChallengeMethodS256 = @"S256";
   OIDServiceConfiguration *configuration =
       [aDecoder decodeObjectOfClass:[OIDServiceConfiguration class]
                              forKey:kConfigurationKey];
-  NSString *responseType = [aDecoder decodeObjectOfClass:[NSString class] forKey:kResponseTypeKey];
+  // Attention: Please refer to https://github.com/openid/AppAuth-iOS/issues/105
+  // If the initializer relaxes it's restriction on the response type field, this code must also
+  // be updated to re-enable use of the serialized responseType value. The value of 'code' here
+  // is only a valid assumption for that reason.
+  // [aDecoder decodeObjectOfClass:[NSString class] forKey:kResponseTypeKey];
+  NSString *responseType = OIDResponseTypeCode;
   NSString *clientID = [aDecoder decodeObjectOfClass:[NSString class] forKey:kClientIDKey];
   NSString *clientSecret = [aDecoder decodeObjectOfClass:[NSString class] forKey:kClientSecretKey];
   NSString *scope = [aDecoder decodeObjectOfClass:[NSString class] forKey:kScopeKey];

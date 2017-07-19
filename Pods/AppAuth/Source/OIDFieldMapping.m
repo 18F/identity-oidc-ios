@@ -22,15 +22,19 @@
 
 @implementation OIDFieldMapping
 
-- (nullable instancetype)init
+@synthesize name = _name;
+@synthesize expectedType = _expectedType;
+@synthesize conversion = _conversion;
+
+- (nonnull instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(@selector(initWithName:type:conversion:));
 
-- (nullable instancetype)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name
                                  type:(Class)type {
   return [self initWithName:name type:type conversion:nil];
 }
 
-- (nullable instancetype)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name
                                  type:(Class)type
                            conversion:(nullable OIDFieldMappingConversionFunction)conversion {
   self = [super init];
@@ -106,6 +110,26 @@
       return [NSURL URLWithString:(NSString *)value];
     }
     return value;
+  };
+}
+
++ (OIDFieldMappingConversionFunction)dateSinceNowConversion {
+  return ^id _Nullable(NSObject *_Nullable value) {
+    if (![value isKindOfClass:[NSNumber class]]) {
+      return value;
+    }
+    NSNumber *valueAsNumber = (NSNumber *)value;
+    return [NSDate dateWithTimeIntervalSinceNow:[valueAsNumber longLongValue]];
+  };
+}
+
++ (OIDFieldMappingConversionFunction)dateEpochConversion {
+  return ^id _Nullable(NSObject *_Nullable value) {
+    if (![value isKindOfClass:[NSNumber class]]) {
+      return value;
+    }
+    NSNumber *valueAsNumber = (NSNumber *) value;
+    return [NSDate dateWithTimeIntervalSince1970:[valueAsNumber longLongValue]];
   };
 }
 

@@ -52,13 +52,14 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @internal
     @brief Unavailable. Please use @c initWithPresentingViewController:
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /*! @brief The designated initializer.
     @param presentingViewController The view controller from which to present the
         \SFSafariViewController.
  */
-- (nullable instancetype)initWithPresentingViewController:(UIViewController *)parentViewController
+- (nullable instancetype)initWithPresentingViewController:
+    (UIViewController *)presentingViewController
     NS_DESIGNATED_INITIALIZER;
 
 @end

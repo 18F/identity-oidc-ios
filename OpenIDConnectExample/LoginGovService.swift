@@ -87,7 +87,7 @@ class LoginGovService {
             scope: nil,
             refreshToken: nil,
             codeVerifier: codeVerifier,
-            additionalParameters: nil)!
+            additionalParameters: nil)
     }
 
     static func loadUserinfo(serviceConfiguration: OIDServiceConfiguration, accessToken : String, callback : @escaping (Any?, Error?) -> Void) {

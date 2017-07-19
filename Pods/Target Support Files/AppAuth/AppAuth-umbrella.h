@@ -1,5 +1,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "AppAuth.h"
@@ -10,11 +18,14 @@
 #import "OIDAuthState.h"
 #import "OIDAuthStateChangeDelegate.h"
 #import "OIDAuthStateErrorDelegate.h"
+#import "OIDClientMetadataParameters.h"
 #import "OIDDefines.h"
 #import "OIDError.h"
 #import "OIDErrorUtilities.h"
 #import "OIDFieldMapping.h"
 #import "OIDGrantTypes.h"
+#import "OIDRegistrationRequest.h"
+#import "OIDRegistrationResponse.h"
 #import "OIDResponseTypes.h"
 #import "OIDScopes.h"
 #import "OIDScopeUtilities.h"

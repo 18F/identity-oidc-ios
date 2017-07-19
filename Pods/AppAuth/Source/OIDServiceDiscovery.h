@@ -23,7 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @brief Represents an OpenID Connect 1.0 Discovery Document
     @see https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata
  */
-@interface OIDServiceDiscovery : NSObject <NSCopying, NSSecureCoding>
+@interface OIDServiceDiscovery : NSObject <NSCopying, NSSecureCoding> {
+  // private variables
+  NSDictionary *_discoveryDictionary;
+}
 
 /*! @brief The decoded OpenID Connect 1.0 Discovery Document as a dictionary.
  */
@@ -316,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
     @brief Unavailable. Please use @c initWithDictionary:error:, @c initWithJSON:error, or the
         @c serviceDiscoveryWithURL:callback: factory method.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /*! @brief Decodes a OpenID Connect Discovery 1.0 JSON document.
     @param serviceDiscoveryJSON An OpenID Connect Service Discovery document.

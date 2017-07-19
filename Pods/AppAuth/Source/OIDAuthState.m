@@ -26,6 +26,7 @@
 #import "OIDDefines.h"
 #import "OIDError.h"
 #import "OIDErrorUtilities.h"
+#import "OIDRegistrationResponse.h"
 #import "OIDTokenRequest.h"
 #import "OIDTokenResponse.h"
 
@@ -86,19 +87,16 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 @end
 
 
-@implementation OIDAuthState {
-  /*! @brief Array of pending actions (use @c _pendingActionsSyncObject to synchronize access).
-   */
-  NSMutableArray *_pendingActions;
+@implementation OIDAuthState
 
-  /*! @brief Object for synchronizing access to @c pendingActions.
-   */
-  id _pendingActionsSyncObject;
-
-  /*! @brief If YES, tokens will be refreshed on the next API call regardless of expiry.
-   */
-  BOOL _needsTokenRefresh;
-}
+@synthesize refreshToken = _refreshToken;
+@synthesize scope = _scope;
+@synthesize lastAuthorizationResponse = _lastAuthorizationResponse;
+@synthesize lastTokenResponse = _lastTokenResponse;
+@synthesize lastRegistrationResponse = _lastRegistrationResponse;
+@synthesize authorizationError = _authorizationError;
+@synthesize stateChangeDelegate = _stateChangeDelegate;
+@synthesize errorDelegate = _errorDelegate;
 
 #pragma mark - Convenience initializers
 
@@ -151,14 +149,13 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 
 #pragma mark - Initializers
 
-- (nullable instancetype)init
+- (nonnull instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(@selector(initWithAuthorizationResponse:tokenResponse:));
 
 /*! @brief Creates an auth state from an authorization response.
     @param response The authorization response.
  */
-- (nullable instancetype)initWithAuthorizationResponse:
-    (OIDAuthorizationResponse *)authorizationResponse {
+- (instancetype)initWithAuthorizationResponse:(OIDAuthorizationResponse *)authorizationResponse {
   return [self initWithAuthorizationResponse:authorizationResponse tokenResponse:nil];
 }
 
@@ -167,13 +164,37 @@ static const NSUInteger kExpiryTimeTolerance = 60;
     @param response The authorization response.
     @discussion Creates an auth state from an authorization response and token response.
  */
-- (nullable instancetype)initWithAuthorizationResponse:
-    (OIDAuthorizationResponse *)authorizationResponse
+- (instancetype)initWithAuthorizationResponse:(OIDAuthorizationResponse *)authorizationResponse
                                          tokenResponse:(nullable OIDTokenResponse *)tokenResponse {
+  return [self initWithAuthorizationResponse:authorizationResponse
+                               tokenResponse:tokenResponse
+                        registrationResponse:nil];
+}
+
+/*! @brief Creates an auth state from an registration response.
+    @param registrationResponse The registration response.
+ */
+- (instancetype)initWithRegistrationResponse:(OIDRegistrationResponse *)registrationResponse {
+  return [self initWithAuthorizationResponse:nil
+                               tokenResponse:nil
+                        registrationResponse:registrationResponse];
+}
+
+- (instancetype)initWithAuthorizationResponse:
+    (nullable OIDAuthorizationResponse *)authorizationResponse
+           tokenResponse:(nullable OIDTokenResponse *)tokenResponse
+    registrationResponse:(nullable OIDRegistrationResponse *)registrationResponse {
   self = [super init];
   if (self) {
     _pendingActionsSyncObject = [[NSObject alloc] init];
-    [self updateWithAuthorizationResponse:authorizationResponse error:nil];
+
+    if (registrationResponse) {
+      [self updateWithRegistrationResponse:registrationResponse];
+    }
+
+    if (authorizationResponse) {
+      [self updateWithAuthorizationResponse:authorizationResponse error:nil];
+    }
 
     if (tokenResponse) {
       [self updateWithTokenResponse:tokenResponse error:nil];
@@ -189,7 +210,7 @@ static const NSUInteger kExpiryTimeTolerance = 60;
                                      "scope: \"%@\", accessToken: \"%@\", "
                                      "accessTokenExpirationDate: %@, idToken: \"%@\", "
                                      "lastAuthorizationResponse: %@, lastTokenResponse: %@, "
-                                     "authorizationError: %@>",
+                                     "lastRegistrationResponse: %@, authorizationError: %@>",
                                     NSStringFromClass([self class]),
                                     self,
                                     (self.isAuthorized) ? @"YES" : @"NO",
@@ -200,6 +221,7 @@ static const NSUInteger kExpiryTimeTolerance = 60;
                                     self.idToken,
                                     _lastAuthorizationResponse,
                                     _lastTokenResponse,
+                                    _lastRegistrationResponse,
                                     _authorizationError];
 }
 
@@ -279,6 +301,16 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 }
 
 #pragma mark - Updating the state
+
+- (void)updateWithRegistrationResponse:(OIDRegistrationResponse *)registrationResponse {
+  _lastRegistrationResponse = registrationResponse;
+  _refreshToken = nil;
+  _scope = nil;
+  _lastAuthorizationResponse = nil;
+  _lastTokenResponse = nil;
+  _authorizationError = nil;
+  [self didChangeState];
+}
 
 - (void)updateWithAuthorizationResponse:(nullable OIDAuthorizationResponse *)authorizationResponse
                                   error:(nullable NSError *)error {

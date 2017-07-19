@@ -67,6 +67,17 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
 
 @implementation OIDTokenRequest
 
+@synthesize configuration = _configuration;
+@synthesize grantType = _grantType;
+@synthesize authorizationCode = _authorizationCode;
+@synthesize redirectURL = _redirectURL;
+@synthesize clientID = _clientID;
+@synthesize clientSecret = _clientSecret;
+@synthesize scope = _scope;
+@synthesize refreshToken = _refreshToken;
+@synthesize codeVerifier = _codeVerifier;
+@synthesize additionalParameters = _additionalParameters;
+
 - (instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(
         @selector(initWithConfiguration:
@@ -81,7 +92,7 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
                    additionalParameters:)
     );
 
-- (nullable instancetype)initWithConfiguration:(OIDServiceConfiguration *)configuration
+- (instancetype)initWithConfiguration:(OIDServiceConfiguration *)configuration
                grantType:(NSString *)grantType
        authorizationCode:(nullable NSString *)code
              redirectURL:(NSURL *)redirectURL
@@ -103,7 +114,7 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
                 additionalParameters:additionalParameters];
 }
 
-- (nullable instancetype)initWithConfiguration:(OIDServiceConfiguration *)configuration
+- (instancetype)initWithConfiguration:(OIDServiceConfiguration *)configuration
                grantType:(NSString *)grantType
        authorizationCode:(nullable NSString *)code
              redirectURL:(NSURL *)redirectURL
@@ -219,7 +230,7 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
     @return The data to pass to the token request URL.
     @see https://tools.ietf.org/html/rfc6749#section-4.1.3
  */
-- (NSData *)tokenRequestBody {
+- (OIDURLQueryComponent *)tokenRequestBody {
   OIDURLQueryComponent *query = [[OIDURLQueryComponent alloc] init];
 
   // Add parameters, as applicable.
@@ -228,12 +239,6 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
   }
   if (_scope) {
     [query addParameter:kScopeKey value:_scope];
-  }
-  if (_clientID) {
-    [query addParameter:kClientIDKey value:_clientID];
-  }
-  if (_clientSecret) {
-    [query addParameter:kClientSecretKey value:_clientSecret];
   }
   if (_redirectURL) {
     [query addParameter:kRedirectURLKey value:_redirectURL.absoluteString];
@@ -251,10 +256,7 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
   // Add any additional parameters the client has specified.
   [query addParameters:_additionalParameters];
 
-  // Construct the body string:
-  NSString *bodyString = [query URLEncodedParameters];
-  NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
-  return body;
+  return query;
 }
 
 - (NSURLRequest *)URLRequest {
@@ -267,7 +269,30 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
   NSMutableURLRequest *URLRequest = [[NSURLRequest requestWithURL:tokenRequestURL] mutableCopy];
   URLRequest.HTTPMethod = kHTTPPost;
   [URLRequest setValue:kHTTPContentTypeHeaderValue forHTTPHeaderField:kHTTPContentTypeHeaderKey];
-  URLRequest.HTTPBody = [self tokenRequestBody];
+
+  OIDURLQueryComponent *bodyParameters = [self tokenRequestBody];
+  NSMutableDictionary *httpHeaders = [[NSMutableDictionary alloc] init];
+
+  if (_clientSecret) {
+    NSString *credentials = [NSString stringWithFormat:@"%@:%@", _clientID, _clientSecret];
+    NSData *plainData = [credentials dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *basicAuth = [plainData base64EncodedStringWithOptions:kNilOptions];
+
+    NSString *authValue = [NSString stringWithFormat:@"Basic %@", basicAuth];
+    [httpHeaders setObject:authValue forKey:@"Authorization"];
+  } else  {
+    [bodyParameters addParameter:kClientIDKey value:_clientID];
+  }
+
+  // Constructs request with the body string and headers.
+  NSString *bodyString = [bodyParameters URLEncodedParameters];
+  NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+  URLRequest.HTTPBody = body;
+
+  for (id header in httpHeaders) {
+    [URLRequest setValue:httpHeaders[header] forHTTPHeaderField:header];
+  }
+
   return URLRequest;
 }
 

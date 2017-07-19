@@ -28,7 +28,18 @@ NS_ASSUME_NONNULL_BEGIN
     @see https://tools.ietf.org/html/rfc6749#section-5.1
     @see http://openid.net/specs/openid-connect-core-1_0.html#ImplicitAuthResponse
  */
-@interface OIDAuthorizationResponse : NSObject <NSCopying, NSSecureCoding>
+@interface OIDAuthorizationResponse : NSObject <NSCopying, NSSecureCoding> {
+  // property variables
+  OIDAuthorizationRequest *_request;
+  NSString *_authorizationCode;
+  NSString *_state;
+  NSString *_accessToken;
+  NSDate *_accessTokenExpirationDate;
+  NSString *_tokenType;
+  NSString *_idToken;
+  NSString *_scope;
+  NSDictionary<NSString *, NSObject<NSCopying> *> *_additionalParameters;
+}
 
 /*! @brief The request which was serviced.
  */
@@ -92,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @internal
     @brief Unavailable. Please use initWithParameters:.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*! @brief Designated initializer.
     @param request The serviced request.
@@ -101,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
         properties are populated. Non-normative parameters are placed in the
         @c #additionalParameters dictionary.
  */
-- (nullable instancetype)initWithRequest:(OIDAuthorizationRequest *)request
+- (instancetype)initWithRequest:(OIDAuthorizationRequest *)request
     parameters:(NSDictionary<NSString *, NSObject<NSCopying> *> *)parameters
     NS_DESIGNATED_INITIALIZER;
 

@@ -28,7 +28,12 @@ typedef _Nullable id(^OIDFieldMappingConversionFunction)(NSObject *_Nullable val
 /*! @brief Describes the mapping of a key/value pair to an iVar with an optional conversion
         function.
  */
-@interface OIDFieldMapping : NSObject
+@interface OIDFieldMapping : NSObject {
+  // property variables
+  NSString *_name;
+  Class _expectedType;
+  OIDFieldMappingConversionFunction _conversion;
+}
 
 /*! @brief The name of the instance variable the field should be mapped to.
  */
@@ -46,7 +51,7 @@ typedef _Nullable id(^OIDFieldMappingConversionFunction)(NSObject *_Nullable val
 /*! @internal
     @brief Unavailable. Please use initWithName:type:conversion:.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*! @brief The designated initializer.
     @param name The name of the instance variable the field should be mapped to.
@@ -57,17 +62,17 @@ typedef _Nullable id(^OIDFieldMappingConversionFunction)(NSObject *_Nullable val
         encoding/decoding, since the encoded and decoded values should already be of the type
         specified by the @c type parameter.
  */
-- (nullable instancetype)initWithName:(NSString *)name
-                                 type:(Class)type
-                           conversion:(nullable OIDFieldMappingConversionFunction)conversion
+- (instancetype)initWithName:(NSString *)name
+                        type:(Class)type
+                  conversion:(nullable OIDFieldMappingConversionFunction)conversion
     NS_DESIGNATED_INITIALIZER;
 
 /*! @brief A convenience initializer.
     @param name The name of the instance variable the field should be mapped to.
     @param type The type of the instance variable.
  */
-- (nullable instancetype)initWithName:(NSString *)name
-                                 type:(Class)type;
+- (instancetype)initWithName:(NSString *)name
+                        type:(Class)type;
 
 /*! @brief Performs a mapping of key/value pairs in an incoming parameters dictionary to instance
         variables, returning a dictionary of parameter key/values which didn't map to instance
@@ -110,6 +115,16 @@ typedef _Nullable id(^OIDFieldMappingConversionFunction)(NSObject *_Nullable val
 /*! @brief Returns a function for converting an @c NSString to an @c NSURL.
  */
 + (OIDFieldMappingConversionFunction)URLConversion;
+
+/*! @brief Returns a function for converting an @c NSNumber number of seconds from now to an
+        @c NSDate.
+ */
++ (OIDFieldMappingConversionFunction)dateSinceNowConversion;
+
+/*! @brief Returns a function for converting an @c NSNumber representing a unix time stamp to an
+        @c NSDate.
+ */
++ (OIDFieldMappingConversionFunction)dateEpochConversion;
 
 @end
 

@@ -20,6 +20,7 @@
 @class OIDAuthorizationRequest;
 @class OIDAuthorizationResponse;
 @class OIDAuthState;
+@class OIDRegistrationResponse;
 @class OIDTokenResponse;
 @class OIDTokenRequest;
 @protocol OIDAuthorizationFlowSession;
@@ -50,7 +51,30 @@ typedef void (^OIDAuthStateAuthorizationCallback)(OIDAuthState *_Nullable authSt
 /*! @brief A convenience class that retains the auth state between @c OIDAuthorizationResponse%s
         and @c OIDTokenResponse%s.
  */
-@interface OIDAuthState : NSObject <NSSecureCoding>
+@interface OIDAuthState : NSObject <NSSecureCoding> {
+  // private variables
+  /*! @brief Array of pending actions (use @c _pendingActionsSyncObject to synchronize access).
+   */
+  NSMutableArray *_pendingActions;
+
+  /*! @brief Object for synchronizing access to @c pendingActions.
+   */
+  id _pendingActionsSyncObject;
+
+  /*! @brief If YES, tokens will be refreshed on the next API call regardless of expiry.
+   */
+  BOOL _needsTokenRefresh;
+
+  // property variables
+  NSString *_refreshToken;
+  NSString *_scope;
+  OIDAuthorizationResponse *_lastAuthorizationResponse;
+  OIDTokenResponse *_lastTokenResponse;
+  OIDRegistrationResponse *_lastRegistrationResponse;
+  NSError *_authorizationError;
+  __weak id<OIDAuthStateChangeDelegate> _stateChangeDelegate;
+  __weak id<OIDAuthStateErrorDelegate> _errorDelegate;
+}
 
 /*! @brief The most recent refresh token received from the server.
     @discussion Rather than using this property directly, you should call
@@ -76,6 +100,11 @@ typedef void (^OIDAuthStateAuthorizationCallback)(OIDAuthState *_Nullable authSt
         contain the latest access token.
  */
 @property(nonatomic, readonly, nullable) OIDTokenResponse *lastTokenResponse;
+
+/*! @brief The most recent registration response used to update this authorization state. This will
+        contain the latest client credentials.
+ */
+@property(nonatomic, readonly, nullable) OIDRegistrationResponse *lastRegistrationResponse;
 
 /*! @brief The authorization error that invalidated this @c OIDAuthState.
     @discussion The authorization error encountered by @c OIDAuthState or set by the user via
@@ -128,20 +157,35 @@ typedef void (^OIDAuthStateAuthorizationCallback)(OIDAuthState *_Nullable authSt
 /*! @internal
     @brief Unavailable. Please use @c initWithAuthorizationResponse:.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*! @brief Creates an auth state from an authorization response.
-    @param response The authorization response.
+    @param authorizationResponse The authorization response.
  */
-- (nullable instancetype)initWithAuthorizationResponse:
-    (OIDAuthorizationResponse *)authorizationResponse;
+- (instancetype)initWithAuthorizationResponse:(OIDAuthorizationResponse *)authorizationResponse;
 
-/*! @brief Creates an auth state from an authorization response.
-    @param response The authorization response.
+/*! @brief Creates an auth state from an authorization and token response.
+    @param authorizationResponse The authorization response.
+    @param tokenResponse The token response.
  */
-- (nullable instancetype)initWithAuthorizationResponse:
-    (OIDAuthorizationResponse *)authorizationResponse
-                                         tokenResponse:(nullable OIDTokenResponse *)tokenResponse;
+- (instancetype)initWithAuthorizationResponse:(OIDAuthorizationResponse *)authorizationResponse
+                                tokenResponse:(nullable OIDTokenResponse *)tokenResponse;
+
+/*! @brief Creates an auth state from an registration response.
+    @param registrationResponse The registration response.
+ */
+- (instancetype)initWithRegistrationResponse:(OIDRegistrationResponse *)registrationResponse;
+
+/*! @brief Creates an auth state from an authorization, token and registration response.
+    @param authorizationResponse The authorization response.
+    @param tokenResponse The token response.
+    @param registrationResponse The registration response.
+ */
+- (instancetype)initWithAuthorizationResponse:
+    (nullable OIDAuthorizationResponse *)authorizationResponse
+           tokenResponse:(nullable OIDTokenResponse *)tokenResponse
+    registrationResponse:(nullable OIDRegistrationResponse *)registrationResponse
+    NS_DESIGNATED_INITIALIZER;
 
 /*! @brief Updates the authorization state based on a new authorization response.
     @param authorizationResponse The new authorization response to update the state with.
@@ -164,6 +208,13 @@ typedef void (^OIDAuthStateAuthorizationCallback)(OIDAuthState *_Nullable authSt
  */
 - (void)updateWithTokenResponse:(nullable OIDTokenResponse *)tokenResponse
                           error:(nullable NSError *)error;
+
+/*! @brief Updates the authorization state based on a new registration response.
+    @param registrationResponse The new registration response to update the state with.
+    @discussion Typically called with the response from a successful client registration
+        request. Will reset the auth state.
+ */
+- (void)updateWithRegistrationResponse:(nullable OIDRegistrationResponse *)registrationResponse;
 
 /*! @brief Updates the authorization state based on an authorization error.
     @param authorizationError The authorization error.
@@ -191,7 +242,7 @@ typedef void (^OIDAuthStateAuthorizationCallback)(OIDAuthState *_Nullable authSt
         refresh was needed and failed, with the error that caused it to fail.
     @param action The block to execute with a fresh token. This block will be executed on the main
         thread.
-    @param additionalRefreshParameters Additional parameters for the token request if token is
+    @param additionalParameters Additional parameters for the token request if token is
         refreshed.
  */
 - (void)performActionWithFreshTokens:(OIDAuthStateAction)action

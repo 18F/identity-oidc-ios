@@ -60,6 +60,15 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
 
 @implementation OIDTokenResponse
 
+@synthesize request = _request;
+@synthesize accessToken = _accessToken;
+@synthesize accessTokenExpirationDate = _accessTokenExpirationDate;
+@synthesize tokenType = _tokenType;
+@synthesize idToken = _idToken;
+@synthesize refreshToken = _refreshToken;
+@synthesize scope = _scope;
+@synthesize additionalParameters = _additionalParameters;
+
 /*! @brief Returns a mapping of incoming parameters to instance variables.
     @return A mapping of incoming parameters to instance variables.
  */
@@ -73,13 +82,7 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
     fieldMap[kExpiresInKey] =
         [[OIDFieldMapping alloc] initWithName:@"_accessTokenExpirationDate"
                                          type:[NSDate class]
-                                   conversion:^id _Nullable(NSObject *_Nullable value) {
-          if (![value isKindOfClass:[NSNumber class]]) {
-            return value;
-          }
-          NSNumber *valueAsNumber = (NSNumber *)value;
-          return [NSDate dateWithTimeIntervalSinceNow:[valueAsNumber longLongValue]];
-        }];
+                                   conversion:[OIDFieldMapping dateSinceNowConversion]];
     fieldMap[kTokenTypeKey] =
         [[OIDFieldMapping alloc] initWithName:@"_tokenType" type:[NSString class]];
     fieldMap[kIDTokenKey] =
@@ -94,10 +97,10 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
 
 #pragma mark - Initializers
 
-- (nullable instancetype)init
+- (instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(@selector(initWithRequest:parameters:));
 
-- (nullable instancetype)initWithRequest:(OIDTokenRequest *)request
+- (instancetype)initWithRequest:(OIDTokenRequest *)request
     parameters:(NSDictionary<NSString *, NSObject<NSCopying> *> *)parameters {
   self = [super init];
   if (self) {

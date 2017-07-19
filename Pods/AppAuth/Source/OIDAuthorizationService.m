@@ -23,6 +23,8 @@
 #import "OIDAuthorizationUICoordinator.h"
 #import "OIDDefines.h"
 #import "OIDErrorUtilities.h"
+#import "OIDRegistrationRequest.h"
+#import "OIDRegistrationResponse.h"
 #import "OIDServiceConfiguration.h"
 #import "OIDServiceDiscovery.h"
 #import "OIDTokenRequest.h"
@@ -40,22 +42,23 @@ static NSString *const kStateParameter = @"state";
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OIDAuthorizationFlowSessionImplementation : NSObject<OIDAuthorizationFlowSession>
-
-- (instancetype)init NS_UNAVAILABLE;
-
-- (nullable instancetype)initWithRequest:(OIDAuthorizationRequest *)request
-    NS_DESIGNATED_INITIALIZER;
-
-@end
-
-@implementation OIDAuthorizationFlowSessionImplementation {
+@interface OIDAuthorizationFlowSessionImplementation : NSObject<OIDAuthorizationFlowSession> {
+  // private variables
   OIDAuthorizationRequest *_request;
   id<OIDAuthorizationUICoordinator> _UICoordinator;
   OIDAuthorizationCallback _pendingauthorizationFlowCallback;
 }
 
-- (nullable instancetype)initWithRequest:(OIDAuthorizationRequest *)request {
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithRequest:(OIDAuthorizationRequest *)request
+    NS_DESIGNATED_INITIALIZER;
+
+@end
+
+@implementation OIDAuthorizationFlowSessionImplementation
+
+- (instancetype)initWithRequest:(OIDAuthorizationRequest *)request {
   self = [super init];
   if (self) {
     _request = [request copy];
@@ -173,6 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation OIDAuthorizationService
+
+@synthesize configuration = _configuration;
 
 + (void)discoverServiceConfigurationForIssuer:(NSURL *)issuerURL
                                    completion:(OIDDiscoveryCallback)completion {
@@ -345,6 +350,114 @@ NS_ASSUME_NONNULL_BEGIN
     // Success
     dispatch_async(dispatch_get_main_queue(), ^{
       callback(tokenResponse, nil);
+    });
+  }] resume];
+}
+
+
+#pragma mark - Registration Endpoint
+
++ (void)performRegistrationRequest:(OIDRegistrationRequest *)request
+                          completion:(OIDRegistrationCompletion)completion {
+  NSURLRequest *URLRequest = [request URLRequest];
+  if (!URLRequest) {
+    // A problem occurred deserializing the response/JSON.
+    NSError *returnedError = [OIDErrorUtilities errorWithCode:OIDErrorCodeJSONSerializationError
+                                              underlyingError:nil
+                                                  description:@"The registration request could not "
+                                                               "be serialized as JSON."];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      completion(nil, returnedError);
+    });
+    return;
+  }
+
+  NSURLSession *session = [NSURLSession sharedSession];
+  [[session dataTaskWithRequest:URLRequest
+              completionHandler:^(NSData *_Nullable data,
+                                  NSURLResponse *_Nullable response,
+                                  NSError *_Nullable error) {
+    if (error) {
+      // A network error or server error occurred.
+      NSError *returnedError = [OIDErrorUtilities errorWithCode:OIDErrorCodeNetworkError
+                                                underlyingError:error
+                                                    description:nil];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(nil, returnedError);
+      });
+      return;
+    }
+
+    NSHTTPURLResponse *HTTPURLResponse = (NSHTTPURLResponse *) response;
+
+    if (HTTPURLResponse.statusCode != 201 && HTTPURLResponse.statusCode != 200) {
+      // A server error occurred.
+      NSError *serverError = [OIDErrorUtilities HTTPErrorWithHTTPResponse:HTTPURLResponse
+                                                                     data:data];
+
+      // HTTP 400 may indicate an OpenID Connect Dynamic Client Registration 1.0 Section 3.3 error
+      // response, checks for that
+      if (HTTPURLResponse.statusCode == 400) {
+        NSError *jsonDeserializationError;
+        NSDictionary<NSString *, NSObject <NSCopying> *> *json =
+            [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonDeserializationError];
+
+        // if the HTTP 400 response parses as JSON and has an 'error' key, it's an OAuth error
+        // these errors are special as they indicate a problem with the authorization grant
+        if (json[OIDOAuthErrorFieldError]) {
+          NSError *oauthError =
+              [OIDErrorUtilities OAuthErrorWithDomain:OIDOAuthRegistrationErrorDomain
+                                        OAuthResponse:json
+                                      underlyingError:serverError];
+          dispatch_async(dispatch_get_main_queue(), ^{
+            completion(nil, oauthError);
+          });
+          return;
+        }
+      }
+
+      // not an OAuth error, just a generic server error
+      NSError *returnedError = [OIDErrorUtilities errorWithCode:OIDErrorCodeServerError
+                                                underlyingError:serverError
+                                                    description:nil];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(nil, returnedError);
+      });
+      return;
+    }
+
+    NSError *jsonDeserializationError;
+    NSDictionary<NSString *, NSObject <NSCopying> *> *json =
+        [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonDeserializationError];
+    if (jsonDeserializationError) {
+      // A problem occurred deserializing the response/JSON.
+      NSError *returnedError = [OIDErrorUtilities errorWithCode:OIDErrorCodeJSONDeserializationError
+                                                underlyingError:jsonDeserializationError
+                                                    description:nil];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(nil, returnedError);
+      });
+      return;
+    }
+
+    OIDRegistrationResponse *registrationResponse =
+        [[OIDRegistrationResponse alloc] initWithRequest:request
+                                              parameters:json];
+    if (!registrationResponse) {
+      // A problem occurred constructing the registration response from the JSON.
+      NSError *returnedError =
+          [OIDErrorUtilities errorWithCode:OIDErrorCodeRegistrationResponseConstructionError
+                           underlyingError:jsonDeserializationError
+                               description:nil];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(nil, returnedError);
+      });
+      return;
+    }
+
+    // Success
+    dispatch_async(dispatch_get_main_queue(), ^{
+      completion(registrationResponse, nil);
     });
   }] resume];
 }

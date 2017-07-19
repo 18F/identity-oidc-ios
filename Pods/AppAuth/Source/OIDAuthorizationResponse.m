@@ -73,6 +73,16 @@ static NSString *const kTokenExchangeRequestException =
 
 @implementation OIDAuthorizationResponse
 
+@synthesize request = _request;
+@synthesize authorizationCode = _authorizationCode;
+@synthesize state = _state;
+@synthesize accessToken = _accessToken;
+@synthesize accessTokenExpirationDate = _accessTokenExpirationDate;
+@synthesize tokenType = _tokenType;
+@synthesize idToken = _idToken;
+@synthesize scope = _scope;
+@synthesize additionalParameters = _additionalParameters;
+
 /*! @brief Returns a mapping of incoming parameters to instance variables.
     @return A mapping of incoming parameters to instance variables.
  */
@@ -109,10 +119,10 @@ static NSString *const kTokenExchangeRequestException =
 
 #pragma mark - Initializers
 
-- (nullable instancetype)init
+- (instancetype)init
     OID_UNAVAILABLE_USE_INITIALIZER(@selector(initWithRequest:parameters:));
 
-- (nullable instancetype)initWithRequest:(OIDAuthorizationRequest *)request
+- (instancetype)initWithRequest:(OIDAuthorizationRequest *)request
     parameters:(NSDictionary<NSString *, NSObject<NSCopying> *> *)parameters {
   self = [super init];
   if (self) {
@@ -142,7 +152,7 @@ static NSString *const kTokenExchangeRequestException =
   return YES;
 }
 
-- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
   OIDAuthorizationRequest *request =
       [aDecoder decodeObjectOfClass:[OIDAuthorizationRequest class] forKey:kRequestKey];
   self = [self initWithRequest:request parameters:@{ }];
